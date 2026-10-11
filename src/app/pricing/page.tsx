@@ -33,7 +33,7 @@ export default function PricingPage() {
         </div>
         <div className="pricing-note">
           <Wallet size={16}/>
-          <span>Cash is charged only in Apixis Wallet. Return here to redeem a plan. Recovra does not run card checkout for Ixis.</span>
+          <span>Cash is charged only in Apixis Wallet. Return here to redeem a plan. Recovix does not run card checkout for Ixis.</span>
         </div>
       </section>
       <section className="pricing-grid">

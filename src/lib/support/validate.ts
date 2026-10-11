@@ -1,4 +1,4 @@
-export const SUPPORT_INBOX = "recovra@apixis.dev";
+export const SUPPORT_INBOX = "recovix@apixis.dev";
 export const SUPPORT_ROUTE_TO = "awad@apixis.dev";
 
 export const SUPPORT_CATEGORIES = [

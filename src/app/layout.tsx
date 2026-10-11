@@ -3,15 +3,15 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Recovra — Recovery Intelligence",
-    template: "%s | Recovra",
+    default: "Recovix — Recovery Intelligence",
+    template: "%s | Recovix",
   },
   description: "Find overcharges. Recover savings. Control spend.",
-  applicationName: "Recovra",
+  applicationName: "Recovix",
   keywords: ["recovery intelligence", "invoice audit", "contract compliance", "spend optimization"],
   openGraph: {
     type: "website",
-    title: "Recovra — Recovery Intelligence",
+    title: "Recovix — Recovery Intelligence",
     description: "Find overcharges. Recover savings. Control spend.",
   },
 };

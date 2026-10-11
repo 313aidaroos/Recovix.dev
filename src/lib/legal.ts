@@ -5,9 +5,9 @@
  * variables so production can differ from preview without a code change. Nothing here is secret.
  */
 export const legalConfig = {
-  productName: "Recovra",
-  /** Registered legal entity that contracts with customers, e.g. "Recovra Technologies Inc." */
-  legalEntity: process.env.NEXT_PUBLIC_LEGAL_ENTITY || "Recovra",
+  productName: "Recovix",
+  /** Registered legal entity that contracts with customers, e.g. "Recovix Technologies Inc." */
+  legalEntity: process.env.NEXT_PUBLIC_LEGAL_ENTITY || "Recovix",
   /** Governing law and venue, e.g. "the State of Delaware, United States". */
   governingLaw: process.env.NEXT_PUBLIC_GOVERNING_LAW || "the jurisdiction in which the operating company is organized",
   /** Where legal and privacy requests should go. */

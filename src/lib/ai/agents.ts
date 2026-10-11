@@ -35,7 +35,7 @@ export const agentBoundaries = {
  * Agents produce advisory structured output. Deterministic rules own financial
  * calculations, and workflow services enforce approval before external action.
  */
-export interface RecovraAgent<Input, Output> {
+export interface RecovixAgent<Input, Output> {
   role: AgentRole;
   execute(task: Omit<AgentTask<Input, Output>, "run">): Promise<AdvisoryAgentOutput<Output>>;
 }

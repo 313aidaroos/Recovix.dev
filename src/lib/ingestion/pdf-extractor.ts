@@ -49,7 +49,7 @@ const DEFAULT_MODELS: Record<ExtractionProvider, string> = {
 const MAX_PDF_BYTES = 20 * 1024 * 1024;
 
 export function getExtractionConfig(): ExtractionConfig | null {
-  const forced = process.env.RECOVRA_AI_PROVIDER as ExtractionProvider | undefined;
+  const forced = process.env.RECOVIX_AI_PROVIDER as ExtractionProvider | undefined;
   const anthropicKey = process.env.ANTHROPIC_API_KEY;
   const openaiKey = process.env.OPENAI_API_KEY;
   const provider: ExtractionProvider | null =
@@ -61,7 +61,7 @@ export function getExtractionConfig(): ExtractionConfig | null {
   if (!provider) return null;
   return {
     provider,
-    model: process.env.RECOVRA_AI_MODEL || DEFAULT_MODELS[provider],
+    model: process.env.RECOVIX_AI_MODEL || DEFAULT_MODELS[provider],
     apiKey: provider === "anthropic" ? anthropicKey! : openaiKey!,
   };
 }

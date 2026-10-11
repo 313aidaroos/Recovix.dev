@@ -4,7 +4,7 @@ import {
   Store, Truck, UtilityPole, Warehouse, type LucideIcon
 } from "lucide-react";
 
-export type RecovraModule = {
+export type RecovixModule = {
   slug: string;
   name: string;
   category: string;
@@ -15,7 +15,7 @@ export type RecovraModule = {
   found: number;
 };
 
-export const modules: RecovraModule[] = [
+export const modules: RecovixModule[] = [
   { slug:"logistics", name:"Logistics", category:"Supply Chain", description:"Freight, parcel, surcharges, weights, zones and service failures.", icon:Truck, status:"live", examples:["Fuel/accessorial mismatch","DIM & weight","Duplicate charges"], found:91320 },
   { slug:"3pl", name:"3PL & Warehouse", category:"Supply Chain", description:"Storage, pick/pack, receiving, returns and activity reconciliation.", icon:Warehouse, status:"beta", examples:["Storage mismatch","Pick/pack overbilling","Duplicate activity"], found:39200 },
   { slug:"fleet", name:"Fleet", category:"Operations", description:"Fuel cards, tolls, rentals, maintenance and vehicle-level leakage.", icon:PackageCheck, status:"planned", examples:["Ghost vehicles","Fuel anomalies","Post-return rentals"], found:14800 },

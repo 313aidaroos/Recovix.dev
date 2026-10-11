@@ -45,7 +45,7 @@ export function UploadForm({ currency, canUpload, pdfExtraction }: { currency: s
             <input ref={input} type="file" name="file" accept=".csv,.xlsx,.xls,.pdf,.png,.jpg,.jpeg,text/csv,application/pdf" hidden onChange={(event) => setFileName(event.target.files?.[0]?.name ?? null)}/>
           </button>
           <button className="primary-button wide" type="submit" disabled={pending || !fileName}>{pending ? "Uploading and auditing…" : "Upload & audit"}</button>
-          <p className="muted-note"><FileSpreadsheet size={13}/> Templates: <Link className="text-link" href="/templates/recovra-invoice-template.csv">invoice CSV</Link> · <Link className="text-link" href="/templates/recovra-rate-sheet-template.csv">rate sheet CSV</Link></p>
+          <p className="muted-note"><FileSpreadsheet size={13}/> Templates: <Link className="text-link" href="/templates/recovix-invoice-template.csv">invoice CSV</Link> · <Link className="text-link" href="/templates/recovix-rate-sheet-template.csv">rate sheet CSV</Link></p>
         </form>
       )}
       <UploadResult state={state} currency={currency}/>

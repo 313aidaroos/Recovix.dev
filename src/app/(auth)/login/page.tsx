@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { SignInForm } from "@/components/auth/sign-in-form";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 
-export const metadata: Metadata = { title: "Sign in · Recovra" };
+export const metadata: Metadata = { title: "Sign in · Recovix" };
 
 export default async function LoginPage({ searchParams }: { searchParams: Promise<{ next?: string; error?: string }> }) {
   const params = await searchParams;

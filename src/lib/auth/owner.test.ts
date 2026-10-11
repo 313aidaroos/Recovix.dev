@@ -1,13 +1,13 @@
 import { describe, expect, it } from "vitest";
-import { ensureOwnerWorkspace, isProvenOwner, isRecovraOwnerEmail } from "./owner";
+import { ensureOwnerWorkspace, isProvenOwner, isRecovixOwnerEmail } from "./owner";
 
-describe("isRecovraOwnerEmail", () => {
+describe("isRecovixOwnerEmail", () => {
   it("recognizes awad@apixis.dev case-insensitively", () => {
-    expect(isRecovraOwnerEmail(" Awad@Apixis.Dev ")).toBe(true);
+    expect(isRecovixOwnerEmail(" Awad@Apixis.Dev ")).toBe(true);
   });
 
   it("does not grant ownership to other addresses", () => {
-    expect(isRecovraOwnerEmail("awad@recovra.com")).toBe(false);
+    expect(isRecovixOwnerEmail("awad@recovix.com")).toBe(false);
   });
 });
 
@@ -21,7 +21,7 @@ describe("ensureOwnerWorkspace", () => {
         return { data: { status: "ok", organization_id: "org-1" }, error: null };
       },
     });
-    expect(calls).toEqual(["ensure_recovra_owner_account"]);
+    expect(calls).toEqual(["ensure_recovix_owner_account"]);
     expect(result).toEqual({ attempted: true, ok: true, organizationId: "org-1" });
   });
 
@@ -38,9 +38,9 @@ describe("ensureOwnerWorkspace", () => {
 
 describe("owner admin allowlist", () => {
   it("recognizes both owner emails case-insensitively", () => {
-    expect(isRecovraOwnerEmail("ALAIDAROOSAWAD@gmail.com")).toBe(true);
-    expect(isRecovraOwnerEmail(" awad@apixis.dev")).toBe(true);
-    expect(isRecovraOwnerEmail("")).toBe(false);
+    expect(isRecovixOwnerEmail("ALAIDAROOSAWAD@gmail.com")).toBe(true);
+    expect(isRecovixOwnerEmail(" awad@apixis.dev")).toBe(true);
+    expect(isRecovixOwnerEmail("")).toBe(false);
   });
 });
 

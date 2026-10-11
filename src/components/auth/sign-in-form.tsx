@@ -113,7 +113,7 @@ export function SignInForm({ next, initialError }: { next: string; initialError?
         </form>
       )}
 
-      <p className="auth-switch">New to Recovra? <Link href="/signup">Create an account</Link></p>
+      <p className="auth-switch">New to Recovix? <Link href="/signup">Create an account</Link></p>
     </>
   );
 }

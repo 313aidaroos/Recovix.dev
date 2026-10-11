@@ -2,22 +2,22 @@
  * Provisional Apixis Wallet buy deep link.
  *
  * docs/WALLET_EMBED.md is still landing on the Wallet buy-UX change.
- * Until that contract is published, Recovra sends the params Wallet
+ * Until that contract is published, Recovix sends the params Wallet
  * already needs to attribute the buyer and send them home:
  * - view=buy — matches the live wallet surface key (`buy`)
- * - origin=recovra — product slug
- * - return_url — production Recovra path only (Wallet allowlist)
+ * - origin=recovix — product slug
+ * - return_url — production Recovix path only (Wallet allowlist)
  *
- * Cash is charged only on Apixis Wallet (Stripe webhook). Recovra
+ * Cash is charged only on Apixis Wallet (Stripe webhook). Recovix
  * never opens its own Checkout to sell Ixis.
  */
 
 export const APIXIS_WALLET_ORIGIN = "https://apixis-wallet.vercel.app";
 
 /** Production host from docs/OPERATIONS.md and docs/LAUNCH_CHECKLIST.md. */
-export const RECOVRA_PUBLIC_ORIGIN = "https://recovra-three.vercel.app";
+export const RECOVIX_PUBLIC_ORIGIN = "https://recovix-three.vercel.app";
 
-export const WALLET_PRODUCT_ORIGIN = "recovra";
+export const WALLET_PRODUCT_ORIGIN = "recovix";
 
 export const WALLET_RETURN_PATHS = ["/pricing", "/dashboard", "/settings"] as const;
 
@@ -30,9 +30,9 @@ export function apixisWalletBuyUrl(returnPath: WalletReturnPath): string {
     throw new Error("Wallet return path is not allowlisted.");
   }
 
-  const returnUrl = new URL(returnPath, RECOVRA_PUBLIC_ORIGIN);
-  if (returnUrl.origin !== RECOVRA_PUBLIC_ORIGIN) {
-    throw new Error("Wallet return URL must stay on the Recovra production host.");
+  const returnUrl = new URL(returnPath, RECOVIX_PUBLIC_ORIGIN);
+  if (returnUrl.origin !== RECOVIX_PUBLIC_ORIGIN) {
+    throw new Error("Wallet return URL must stay on the Recovix production host.");
   }
 
   const url = new URL(APIXIS_WALLET_ORIGIN);

@@ -8,7 +8,7 @@ const ALWAYS_EXPECTED = new Set(DEFAULT_BASIS_CODES.map(normalizeCode));
 
 /**
  * A charge code that appears on the invoice but nowhere in the vendor's contract terms.
- * Recovra cannot compute an expected amount, so this is flagged for human review — never counted as verified savings.
+ * Recovix cannot compute an expected amount, so this is flagged for human review — never counted as verified savings.
  */
 export const logisticsUnapprovedAccessorialRule: LineRule = {
   id: "logistics.unapproved-accessorial",

@@ -12,7 +12,7 @@ export interface RedeemButtonProps {
 export function RedeemButton({ planName, ixisAmount }: RedeemButtonProps) {
   const attempt = useRef("");
   const [state, action, pending] = useActionState(async (previous: WalletRedeemState, form: FormData) => {
-    const key = `recovra-purchase:${planName}`;
+    const key = `recovix-purchase:${planName}`;
     if (!attempt.current) {
       try { attempt.current = sessionStorage.getItem(key) || ""; } catch { /* optional storage */ }
       if (!/^[a-zA-Z0-9-]{16,64}$/.test(attempt.current)) attempt.current = crypto.randomUUID();

@@ -56,7 +56,7 @@ export default function Home() {
         <div className="hero-copy">
           <span className="hero-badge"><i/> The recovery intelligence platform</span>
           <h1>Find overcharges.<br/>Recover savings.<br/><em>Control spend.</em></h1>
-          <p>Recovra uses AI and automation to audit contracts, invoices, and real-world activity across every vendor—so your team can recover what you’re owed and prevent waste before it happens.</p>
+          <p>Recovix uses AI and automation to audit contracts, invoices, and real-world activity across every vendor—so your team can recover what you’re owed and prevent waste before it happens.</p>
           <div className="hero-actions"><Link className="primary-cta" href="/audit">Run a sample audit <ArrowRight size={17}/></Link><a className="ghost-cta" href="#how">See How It Works</a></div>
           <div className="hero-proof">
             <div><strong>$1.2B+</strong><small>Illustrative spend monitored</small></div>
@@ -94,7 +94,7 @@ export default function Home() {
       <section className="platform-preview-section" id="platform">
         <div className="section-intro"><span className="eyebrow">The command center</span><h2>Every dollar, under control.</h2><p>A complete view of spend monitored, recovery opportunities, realized value, and future waste prevented.</p></div>
         <div className="browser-frame">
-          <div className="browser-top"><i/><i/><i/><span>app.recovra.com/dashboard · sample workspace</span></div>
+          <div className="browser-top"><i/><i/><i/><span>app.recovix.com/dashboard · sample workspace</span></div>
           <div className="preview-app">
             <aside><Brand/><nav><strong><BarChart3 size={13}/> Command Center</strong><span><ShieldCheck size={13}/> Opportunities</span><span><FileSearch2 size={13}/> Invoices</span><span><CreditCard size={13}/> Contracts</span><span><Boxes size={13}/> Vendors</span><span><Bot size={13}/> Industry Modules</span></nav></aside>
             <section>
@@ -113,10 +113,10 @@ export default function Home() {
 
       <section className="enterprise-cta" id="customers">
         <div className="cta-quote"><Sparkles size={22}/><blockquote>“The strongest recovery programs connect every finding to proof, ownership, and a measurable outcome.”</blockquote><span>Illustrative customer outcome · not a customer testimonial</span></div>
-        <div><span className="eyebrow">Turn expenses into opportunities</span><h2>Stop leaving money<br/>on the table.</h2><p>Join the companies using Recovra’s operating model to recover more, control spend, and build a stronger bottom line.</p><div className="hero-actions"><Link className="primary-cta" href="/signup">Get Started <ArrowRight size={16}/></Link><Link className="ghost-cta" href="/audit">Try the sample audit</Link></div></div>
+        <div><span className="eyebrow">Turn expenses into opportunities</span><h2>Stop leaving money<br/>on the table.</h2><p>Join the companies using Recovix’s operating model to recover more, control spend, and build a stronger bottom line.</p><div className="hero-actions"><Link className="primary-cta" href="/signup">Get Started <ArrowRight size={16}/></Link><Link className="ghost-cta" href="/audit">Try the sample audit</Link></div></div>
       </section>
 
-      <footer id="resources"><Brand/><p>Find overcharges. Recover savings. Control spend.</p><nav><Link href="/audit">Sample audit</Link><Link href="/support">Support</Link><Link href="/terms">Terms</Link><Link href="/privacy">Privacy</Link><Link href="/pricing">Pricing</Link><BuyIxisLink returnPath="/pricing" label="Wallet" /><Link href="/login">Sign in</Link></nav><span>© 2026 Recovra</span></footer>
+      <footer id="resources"><Brand/><p>Find overcharges. Recover savings. Control spend.</p><nav><Link href="/audit">Sample audit</Link><Link href="/support">Support</Link><Link href="/terms">Terms</Link><Link href="/privacy">Privacy</Link><Link href="/pricing">Pricing</Link><BuyIxisLink returnPath="/pricing" label="Wallet" /><Link href="/login">Sign in</Link></nav><span>© 2026 Recovix</span></footer>
     </main>
   );
 }

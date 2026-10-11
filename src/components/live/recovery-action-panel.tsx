@@ -35,7 +35,7 @@ export function RecoveryActionPanel({
         <h3>No action available for your role</h3>
         <p>This case is waiting on another role (for example an approver) or has reached a terminal state.</p>
         <FormStatus state={state}/>
-        <div className="human-control"><LockKeyhole size={14}/> Recovra will never submit without human approval.</div>
+        <div className="human-control"><LockKeyhole size={14}/> Recovix will never submit without human approval.</div>
       </article>
     );
   }
@@ -80,7 +80,7 @@ export function RecoveryActionPanel({
           </button>
         </form>
       )}
-      <div className="human-control"><LockKeyhole size={14}/> Recovra records decisions; it never sends claims or money on your behalf.</div>
+      <div className="human-control"><LockKeyhole size={14}/> Recovix records decisions; it never sends claims or money on your behalf.</div>
     </article>
   );
 }

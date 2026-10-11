@@ -9,11 +9,11 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
         <div className="auth-panel-copy">
           <span className="eyebrow">Recovery Intelligence Platform</span>
           <h1>Find overcharges. Recover savings. Control spend.</h1>
-          <p>Upload contracts, rate sheets and invoices. Recovra audits every line deterministically, links the evidence, and routes each recovery through human approval.</p>
+          <p>Upload contracts, rate sheets and invoices. Recovix audits every line deterministically, links the evidence, and routes each recovery through human approval.</p>
           <ul>
             <li><ShieldCheck size={15}/> Tenant isolation enforced with row-level security</li>
             <li><ShieldCheck size={15}/> Private document storage with SHA-256 provenance</li>
-            <li><ShieldCheck size={15}/> No claim leaves Recovra without an approver</li>
+            <li><ShieldCheck size={15}/> No claim leaves Recovix without an approver</li>
           </ul>
         </div>
       </section>

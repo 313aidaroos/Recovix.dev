@@ -1,10 +1,10 @@
--- 2026-10-04 Grok: owner admin allowlist (Awad's rule). Both owner emails are the Recovra owner:
--- ensure_recovra_owner_account() bootstraps the Recovra Admin workspace for either address (verified
+-- 2026-10-04 Grok: owner admin allowlist (Awad's rule). Both owner emails are the Recovix owner:
+-- ensure_recovix_owner_account() bootstraps the Recovix Admin workspace for either address (verified
 -- email only), and either can read/update the routed support queue. Undo: re-run the function and
 -- policies from 20260916000002_auth_owner_support.sql.
 begin;
 
-create or replace function public.ensure_recovra_owner_account()
+create or replace function public.ensure_recovix_owner_account()
 returns jsonb
 language plpgsql
 security definer
@@ -35,10 +35,10 @@ begin
   limit 1;
 
   if v_org is null then
-    select id into v_org from public.organizations where slug = 'recovra-admin' limit 1;
+    select id into v_org from public.organizations where slug = 'recovix-admin' limit 1;
     if v_org is null then
       insert into public.organizations (name, slug, currency, review_threshold)
-      values ('Recovra Admin', 'recovra-admin', 'USD', 1000)
+      values ('Recovix Admin', 'recovix-admin', 'USD', 1000)
       returning id into v_org;
     end if;
     insert into public.organization_members (organization_id, user_id, role)
@@ -60,8 +60,8 @@ begin
 end;
 $$;
 
-revoke all on function public.ensure_recovra_owner_account() from public, anon;
-grant execute on function public.ensure_recovra_owner_account() to authenticated;
+revoke all on function public.ensure_recovix_owner_account() from public, anon;
+grant execute on function public.ensure_recovix_owner_account() to authenticated;
 
 drop policy if exists "awad reads routed support" on public.support_requests;
 create policy "awad reads routed support" on public.support_requests

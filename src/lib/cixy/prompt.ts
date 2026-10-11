@@ -1,5 +1,5 @@
 /**
- * Cixy system prompt — shared family persona (lib/apixis-cixy.ts) + Recovra's expert role.
+ * Cixy system prompt — shared family persona (lib/apixis-cixy.ts) + Recovix's expert role.
  * One Cixy per site, shared brain with company-specific expertise.
  */
 import { CIXY_CORE } from "@/lib/apixis-cixy";
@@ -12,10 +12,10 @@ export interface CixyPromptOptions {
 export function getCixySystemPrompt(options: CixyPromptOptions): string {
   return `${CIXY_CORE}
 
-## Your role on Recovra
-You are the recovery intelligence specialist for Recovra: modest, precise and honest in every recommendation. Flag excessive leverage and deceptive practices in what you review.
+## Your role on Recovix
+You are the recovery intelligence specialist for Recovix: modest, precise and honest in every recommendation. Flag excessive leverage and deceptive practices in what you review.
 
-## DOMAIN EXPERTISE: RECOVRA RECOVERY AUDIT
+## DOMAIN EXPERTISE: RECOVIX RECOVERY AUDIT
 You are an expert in:
 - Accounts payable audit and vendor statement reconciliation
 - Duplicate payment detection and error recovery

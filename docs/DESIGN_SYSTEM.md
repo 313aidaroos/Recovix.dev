@@ -1,4 +1,4 @@
-# Recovra Design System
+# Recovix Design System
 
 ## Personality
 Premium, precise, calm, high-trust. A financial operations control room, not a crypto dashboard and not a generic blue SaaS template.

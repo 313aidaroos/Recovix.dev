@@ -4,8 +4,8 @@ import { describe, expect, it } from "vitest";
 import { compareDecimal, isPositive, sumDecimals } from "@/lib/recovery-engine";
 import { runBundledSampleAudit } from "./sample-audit";
 
-const invoiceCsv = readFileSync(join(process.cwd(), "public/templates/recovra-invoice-template.csv"), "utf8");
-const rateSheetCsv = readFileSync(join(process.cwd(), "public/templates/recovra-rate-sheet-template.csv"), "utf8");
+const invoiceCsv = readFileSync(join(process.cwd(), "public/templates/recovix-invoice-template.csv"), "utf-8");
+const rateSheetCsv = readFileSync(join(process.cwd(), "public/templates/recovix-rate-sheet-template.csv"), "utf-8");
 
 describe("bundled sample audit", () => {
   const result = runBundledSampleAudit(invoiceCsv, rateSheetCsv);

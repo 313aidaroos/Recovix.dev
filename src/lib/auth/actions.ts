@@ -50,7 +50,7 @@ export async function sendMagicLinkAction(_previous: AuthFormState, formData: Fo
   });
   if (error) {
     if (/signups? not allowed|otp_disabled|user not found/i.test(`${error.code ?? ""} ${error.message}`)) {
-      return { error: "No Recovra account uses this email yet. New here? Use Sign in with Apixis to create your account." };
+      return { error: "No Recovix account uses this email yet. New here? Use Sign in with Apixis to create your account." };
     }
     return { error: error.message };
   }
@@ -131,7 +131,7 @@ export async function addMemberAction(_previous: AuthFormState, formData: FormDa
   if (error) return { error: error.message };
   const result = data as { status: string };
   if (result.status === "user_not_found") {
-    return { error: `${email} has not created a Recovra account yet. Ask them to create one with Sign in with Apixis, then add them again.` };
+    return { error: `${email} has not created a Recovix account yet. Ask them to create one with Sign in with Apixis, then add them again.` };
   }
   return { message: `${email} now has the ${role} role.` };
 }

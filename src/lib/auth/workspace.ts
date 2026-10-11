@@ -5,7 +5,7 @@ import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { ensureOwnerWorkspace } from "./owner";
 import type { Membership, Organization, OrganizationRole, WorkspaceUser } from "@/types/workspace";
 
-export const ACTIVE_ORG_COOKIE = "recovra-org";
+export const ACTIVE_ORG_COOKIE = "recovix-org";
 
 /**
  * Demo: anonymous visitor (or Supabase not configured) → clearly labelled sample workspace.

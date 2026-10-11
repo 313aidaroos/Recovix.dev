@@ -21,7 +21,7 @@ export function LiveRecoveries({ rows, pipeline, currency }: { rows: FindingList
 
   return (
     <>
-      <PageHeader eyebrow="Recovery center" title="From finding to money recovered." description="Every case moves through review, evidence confirmation and a human approval before anyone submits a claim to a vendor. Recovra never sends claims on your behalf."/>
+      <PageHeader eyebrow="Recovery center" title="From finding to money recovered." description="Every case moves through review, evidence confirmation and a human approval before anyone submits a claim to a vendor. Recovix never sends claims on your behalf."/>
       <section className="pipeline-board">
         {board.map((stage, index) => <div key={stage.status}><span>{index + 1}</span><small>{stage.label}</small><strong>{formatMoney(stage.amount, currency)}</strong><em>{stage.count} case{stage.count === 1 ? "" : "s"}</em>{index < board.length - 1 && <i/>}</div>)}
       </section>

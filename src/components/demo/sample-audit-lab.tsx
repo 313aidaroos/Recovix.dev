@@ -68,7 +68,7 @@ export function SampleAuditLab() {
       <section className="audit-hero">
         <span className="sample-label">Demo · not a live tenant</span>
         <h1>Intake → finding, with an evidence trail.</h1>
-        <p>Upload an invoice CSV and optional rate sheet, or run the bundled sample. Recovra parses the rows, runs the deterministic recovery engine, and shows billed vs expected with source locators. Amounts are calculated, never invented. Claims are not sent from this page.</p>
+        <p>Upload an invoice CSV and optional rate sheet, or run the bundled sample. Recovix parses the rows, runs the deterministic recovery engine, and shows billed vs expected with source locators. Amounts are calculated, never invented. Claims are not sent from this page.</p>
       </section>
 
       <section className="audit-grid">
@@ -94,7 +94,7 @@ export function SampleAuditLab() {
               Audit my files
             </button>
           </div>
-          <p className="muted-note">Templates: <Link className="text-link" href="/templates/recovra-invoice-template.csv">invoice CSV</Link> · <Link className="text-link" href="/templates/recovra-rate-sheet-template.csv">rate sheet CSV</Link></p>
+          <p className="muted-note">Templates: <Link className="text-link" href="/templates/recovix-invoice-template.csv">invoice CSV</Link> · <Link className="text-link" href="/templates/recovix-rate-sheet-template.csv">rate sheet CSV</Link></p>
         </article>
 
         <article className="panel">
@@ -130,7 +130,7 @@ function AuditResult({ result, findingCount, persistence }: { result: SampleAudi
       </div>
       <p className="form-status success"><CheckCircle2 size={14}/> {result.message}</p>
       {persistence?.persisted ? (
-        <p className="muted-note">Saved to Recovra Postgres as demo run {persistence.id}. Labeled demo. Claims sent: 0.</p>
+        <p className="muted-note">Saved to Recovix Postgres as demo run {persistence.id}. Labeled demo. Claims sent: 0.</p>
       ) : persistence && !persistence.persisted ? (
         <p className="muted-note">{persistence.reason}</p>
       ) : null}

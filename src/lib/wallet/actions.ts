@@ -17,7 +17,7 @@ export interface WalletRedeemState {
 }
 
 /**
- * Redeem Ixis for Recovra plan subscription.
+ * Redeem Ixis for Recovix plan subscription.
  * Uses the shared Wallet client: reserve → confirm capture → idempotent plan activation.
  */
 export async function redeemIxisAction(_previous: WalletRedeemState, formData: FormData): Promise<WalletRedeemState> {
@@ -42,8 +42,8 @@ export async function redeemIxisAction(_previous: WalletRedeemState, formData: F
 
     // Product keys must match ApixisWallet lib/catalog.ts exactly (verified live 2026-09-22).
     const PRODUCT_KEYS: Record<string, { key: string; plan: "starter" | "growth" }> = {
-      Starter: { key: "recovra.intel.monthly", plan: "starter" },
-      Growth: { key: "recovra.intel.growth", plan: "growth" },
+      Starter: { key: "recovix.intel.monthly", plan: "starter" },
+      Growth: { key: "recovix.intel.growth", plan: "growth" },
     };
     const sku = PRODUCT_KEYS[planName];
     if (!sku) return { status: "error", message: "That plan can't be redeemed yet — contact us for Enterprise." };
@@ -52,7 +52,7 @@ export async function redeemIxisAction(_previous: WalletRedeemState, formData: F
     // BILLING HARDENING 3a: Idempotency key = user + product + client-generated attemptId per click.
     // NOT Date.now(). Under 80 chars, no email in it.
     const attemptId = String(formData.get("attemptId") ?? "");
-    const idempotencyKey = `recovra-${createHash("sha256").update(`${workspace.organization.id}:${sku.plan}:${attemptId}`).digest("hex")}`;
+    const idempotencyKey = `recovix-${createHash("sha256").update(`${workspace.organization.id}:${sku.plan}:${attemptId}`).digest("hex")}`;
     if (!/^[a-zA-Z0-9-]{16,64}$/.test(attemptId)) {
       return { status: "error", message: "Invalid attempt ID." };
     }
@@ -75,11 +75,11 @@ export async function redeemIxisAction(_previous: WalletRedeemState, formData: F
 
     if (!result.ok) {
       // 402: Not enough Ixis
-      const returnUrl = `https://recovra-three.vercel.app/pricing`;
+      const returnUrl = `https://recovix-three.vercel.app/pricing`;
       return {
         status: "insufficient",
         message: `You need ${result.needed.toLocaleString()} Ixis. You can buy more and return here.`,
-        buyUrl: buyIxisUrl("recovra", returnUrl),
+        buyUrl: buyIxisUrl("recovix", returnUrl),
       };
     }
 

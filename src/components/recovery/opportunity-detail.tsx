@@ -49,7 +49,7 @@ export function OpportunityDetail({ opportunity }: { opportunity: Opportunity })
       <section className="detail-layout">
         <div className="detail-main">
           <article className="panel explanation-panel">
-            <div className="panel-title-row"><div><span className="panel-kicker">Finding explanation</span><h3>What Recovra found</h3></div><span className="ai-label"><Bot size={14}/> AI explanation · calculations verified by rule</span></div>
+            <div className="panel-title-row"><div><span className="panel-kicker">Finding explanation</span><h3>What Recovix found</h3></div><span className="ai-label"><Bot size={14}/> AI explanation · calculations verified by rule</span></div>
             <p>{opportunity.explanation}</p>
             <div className="calculation-strip">
               <div><small>Invoiced amount</small><strong>{money(opportunity.invoicedAmount)}</strong></div><span>−</span>
@@ -85,7 +85,7 @@ export function OpportunityDetail({ opportunity }: { opportunity: Opportunity })
               {prepared ? <><CheckCircle2 size={15}/> Prepared for review</> : <><Send size={15}/> Prepare approved claim</>}
             </button>
             {prepared && <p className="prepared-note" role="status">Draft prepared locally. No claim was submitted or sent to the vendor.</p>}
-            <div className="human-control"><LockKeyhole size={14}/> Recovra will never submit without human approval.</div>
+            <div className="human-control"><LockKeyhole size={14}/> Recovix will never submit without human approval.</div>
           </article>
           <article className="panel claim-draft">
             <div className="panel-title-row"><div><span className="panel-kicker">Claim draft</span><h3>Vendor review request</h3></div><StatusBadge tone={prepared ? "good" : "neutral"}>{prepared ? "Prepared" : "Draft"}</StatusBadge></div>

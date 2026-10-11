@@ -11,7 +11,7 @@ const DEFAULT_SUPABASE_URL = "https://ewvgpfufzeyzyutjxuoh.supabase.co";
 const DEFAULT_PUBLISHABLE_KEY = "sb_publishable_KzEBzjrfIQJuOmyclqmXnA_keg7Jn4x";
 
 export function getSupabaseEnv() {
-  if (process.env.RECOVRA_FORCE_DEMO === "1") return null;
+  if (process.env.RECOVIX_FORCE_DEMO === "1") return null;
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL || DEFAULT_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || DEFAULT_PUBLISHABLE_KEY;
   if (!url || !key) return null;

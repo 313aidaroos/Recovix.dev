@@ -1,4 +1,4 @@
--- Tenant-isolation test for Recovra's RLS policies.
+-- Tenant-isolation test for Recovix's RLS policies.
 --
 -- Runs entirely inside one transaction and rolls back, so it is safe against the live
 -- database. It creates two auth users and two organizations, seeds a vendor, document,

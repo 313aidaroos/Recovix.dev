@@ -1,4 +1,4 @@
--- Recovra core schema (agreement -> charge -> activity -> expected cost -> variance -> evidence -> recovery -> prevention).
+-- Recovix core schema (agreement -> charge -> activity -> expected cost -> variance -> evidence -> recovery -> prevention).
 create extension if not exists pgcrypto;
 
 create table if not exists public.organizations (

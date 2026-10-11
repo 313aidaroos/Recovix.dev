@@ -1,7 +1,7 @@
 # Vision
 
 ## One sentence
-Recovra is the financial recovery intelligence layer between what a business **agreed to pay** and what it **actually paid**.
+Recovix is the financial recovery intelligence layer between what a business **agreed to pay** and what it **actually paid**.
 
 ## North Star
 Every payable dollar should be explainable, contract-correct, evidence-backed and recoverable when wrong.

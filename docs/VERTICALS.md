@@ -1,6 +1,6 @@
 # Vertical Packs
 
-Recovra uses a **Universal Recovery Engine**. Vertical packs define document types, operational truth, charge taxonomies, calculation rules and recovery playbooks.
+Recovix uses a **Universal Recovery Engine**. Vertical packs define document types, operational truth, charge taxonomies, calculation rules and recovery playbooks.
 
 ## 1. Logistics & Parcel
 Inputs: carrier invoices, contracts/rate cards, BOLs, manifests, tracking events, shipment dimensions/weights.

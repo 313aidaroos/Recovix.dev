@@ -28,7 +28,7 @@ export const APIXIS_ENTER_CLIENTS = [
   "contraxis",
   "halaxis",
   "lyrixis",
-  "recovra",
+  "recovix",
   "qahwahworld",
   "launchixis",
   "deduxis",

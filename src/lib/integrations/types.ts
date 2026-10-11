@@ -17,7 +17,7 @@ export type ConnectorObject = {
   provenance: Record<string, string>;
 };
 
-export interface RecovraConnector {
+export interface RecovixConnector {
   provider: string;
   supportedObjects: readonly string[];
   sync(args: {

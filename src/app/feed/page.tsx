@@ -3,11 +3,11 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Brand } from "@/components/brand";
 import { BuyIxisLink } from "@/components/wallet/buy-ixis-link";
-import { RecovraFeed } from "./RecovraFeed";
+import { RecovixFeed } from "./RecovixFeed";
 import "./feed.css";
 
 export const metadata: Metadata = {
-  title: "Feed · Recovra",
+  title: "Feed · Recovix",
   description: "Posts from every Apixis company, in one feed.",
 };
 
@@ -29,10 +29,10 @@ export default function FeedPage() {
           <h1>One feed. <em>Every company.</em></h1>
           <p>What people across the Apixis family are sharing. Sign in with your Apixis ID to post, follow, comment and tip in Ixis.</p>
         </div>
-        <RecovraFeed />
+        <RecovixFeed />
       </section>
 
-      <footer id="resources"><Brand/><p>Find overcharges. Recover savings. Control spend.</p><nav><Link href="/audit">Sample audit</Link><Link href="/support">Support</Link><Link href="/terms">Terms</Link><Link href="/privacy">Privacy</Link><Link href="/pricing">Pricing</Link><BuyIxisLink returnPath="/pricing" label="Wallet" /><Link href="/login">Sign in</Link></nav><span>© 2026 Recovra</span></footer>
+      <footer id="resources"><Brand/><p>Find overcharges. Recover savings. Control spend.</p><nav><Link href="/audit">Sample audit</Link><Link href="/support">Support</Link><Link href="/terms">Terms</Link><Link href="/privacy">Privacy</Link><Link href="/pricing">Pricing</Link><BuyIxisLink returnPath="/pricing" label="Wallet" /><Link href="/login">Sign in</Link></nav><span>© 2026 Recovix</span></footer>
     </main>
   );
 }

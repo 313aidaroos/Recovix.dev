@@ -1,5 +1,5 @@
 "use client";
-// One-time "Your agent is ready. Enter the Apixis world" card on the Recovra Command Center.
+// One-time "Your agent is ready. Enter the Apixis world" card on the Recovix Command Center.
 // The agent is created server-side by GET /api/apixis/world-agent on the first signed-in load.
 // Cixy is the guide, never the person's avatar. Grok Developer Bot, 2026-09-28.
 import { useEffect, useState } from "react";
@@ -55,8 +55,8 @@ export function ApixisWorldWelcome() {
           </h2>
           <p style={{ margin: 0, color: "#778d82", fontSize: 13, lineHeight: 1.6, maxWidth: 680 }}>
             {ready
-              ? "Your Recovra account came with your own agent in the Apixis world. It starts in the default Apixis body. Pick its hair, outfit and colors once you're inside. I'll meet you there and show you around."
-              : "Every Recovra account gets its own agent in the Apixis world. Sign in with Apixis ID and it's created for you, in the default Apixis body you can make your own."}
+              ? "Your Recovix account came with your own agent in the Apixis world. It starts in the default Apixis body. Pick its hair, outfit and colors once you're inside. I'll meet you there and show you around."
+              : "Every Recovix account gets its own agent in the Apixis world. Sign in with Apixis ID and it's created for you, in the default Apixis body you can make your own."}
           </p>
           <ul aria-label="Your agent" style={{ listStyle: "none", padding: 0, margin: "14px 0 0", display: "flex", flexWrap: "wrap", gap: 8 }}>
             <li style={{ ...chip, background: "var(--green)", color: "var(--ink)", borderColor: "var(--green)" }}>✦ {ready && view.agentName ? view.agentName : "Your agent"}</li>
@@ -71,7 +71,7 @@ export function ApixisWorldWelcome() {
           <button type="button" className="secondary-button" style={{ height: 40, width: "100%", justifyContent: "center" }} onClick={() => { markSeen("dismiss"); setView({ ...view, showWelcome: false }); }}>
             Not now
           </button>
-          <small style={{ textAlign: "center", color: "var(--muted)", fontSize: 11 }}>You can come back to Recovra anytime.</small>
+          <small style={{ textAlign: "center", color: "var(--muted)", fontSize: 11 }}>You can come back to Recovix anytime.</small>
         </div>
       </div>
     </section>

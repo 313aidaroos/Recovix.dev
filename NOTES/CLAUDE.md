@@ -1,11 +1,11 @@
-# Claude notes (Recovra)
+# Claude notes (Recovix)
 
 Dated notes from Claude (Claude Code), same purpose as `NOTES/GROK.md`: what Claude checked or changed here, what it found, what is still open and who owns it. The one family status board is `ApixisWallet/docs/FAMILY_STATUS.md`.
 
 ## 2026-10-04 (UTC) — Claude: full-portfolio review (read-only; this note and the AI_CHANGELOG line are the only changes)
 
 ### Snapshot
-- Reviewed `main` @ `756f9f2`; the owner admin allowlist merged → `main` is `dc7d1a1`. Vercel `recovra` production READY. The live host is `recovra-three.vercel.app` — `recovra.vercel.app` is a different app (naming hazard in links).
+- Reviewed `main` @ `756f9f2`; the owner admin allowlist merged → `main` is `dc7d1a1`. Vercel `recovix` production READY. The live host is `recovix-three.vercel.app` — `recovix.vercel.app` is a different app (naming hazard in links).
 - Supabase `ewvgpfufzeyzyutjxuoh`: 12 tracked migrations, all applied, including `lock_plan_entitlements` (09-23: the free-paid-plan hole is closed) and `tester_plan_activation` (09-30).
 - Open PR per the family board: #13 footer.
 
@@ -18,7 +18,7 @@ Dated notes from Claude (Claude Code), same purpose as `NOTES/GROK.md`: what Cla
 Landing + pricing, command center (opportunities, invoices, contracts, vendors, documents, ingest, integrations, modules, recoveries, reports, settings), claims, audit, Apixis ID + magic link + onboarding, Cixy (shared core + calm fallback), paid-plan activation via the Wallet (capture-first, receipt journal, idempotent RPC, billing roles), world agent, support + support queue, terms/privacy (env-driven legal entity), health route, CI.
 
 ### Open — needs Awad
-- `SUPABASE_SERVICE_ROLE_KEY` on Vercel project `recovra` — the one blocker: paid plans cannot activate without it.
+- `SUPABASE_SERVICE_ROLE_KEY` on Vercel project `recovix` — the one blocker: paid plans cannot activate without it.
 - `NEXT_PUBLIC_LEGAL_ENTITY / _ADDRESS / _EMAIL / _GOVERNING_LAW` for the legal pages.
 - PR #13 footer.
 - Product scope: everything shown is sample data and the only analysis path is `/api/demo/analyze`. Real invoice / contract ingestion and reconciliation — the product itself — is not built. Decide the roadmap before promising it to a tester.

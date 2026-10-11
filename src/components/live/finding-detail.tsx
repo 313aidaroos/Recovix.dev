@@ -49,7 +49,7 @@ export function FindingDetail({ data, role, documentLinks }: { data: FindingDeta
       <section className="detail-layout">
         <div className="detail-main">
           <article className="panel explanation-panel">
-            <div className="panel-title-row"><div><span className="panel-kicker">Finding explanation</span><h3>What Recovra found</h3></div><span className="ai-label"><Bot size={14}/> Rule-generated explanation · amounts from calculation trace</span></div>
+            <div className="panel-title-row"><div><span className="panel-kicker">Finding explanation</span><h3>What Recovix found</h3></div><span className="ai-label"><Bot size={14}/> Rule-generated explanation · amounts from calculation trace</span></div>
             <p>{finding.description}</p>
             <div className="calculation-strip">
               <div><small>Billed amount</small><strong>{formatMoney(finding.billed_amount, finding.currency, { cents: true })}</strong></div><span>−</span>

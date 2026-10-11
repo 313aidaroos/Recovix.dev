@@ -7,7 +7,7 @@ import { BuyIxisLink } from "@/components/wallet/buy-ixis-link";
 
 export const metadata: Metadata = {
   title: "Sample audit",
-  description: "Run Recovra’s recovery engine on a labeled sample invoice and rate sheet. Findings include evidence locators and a calculation trail. No claims are sent.",
+  description: "Run Recovix’s recovery engine on a labeled sample invoice and rate sheet. Findings include evidence locators and a calculation trail. No claims are sent.",
 };
 
 export default function AuditPage() {
@@ -34,7 +34,7 @@ export default function AuditPage() {
         <nav>
           <Link href="/terms">Terms</Link>
           <Link href="/privacy">Privacy</Link>
-          <Link href="/templates/recovra-invoice-template.csv">Invoice template</Link>
+          <Link href="/templates/recovix-invoice-template.csv">Invoice template</Link>
         </nav>
       </footer>
     </main>

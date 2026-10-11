@@ -1,4 +1,4 @@
-/* Recovra feed: maps the shared feed layout onto Recovra theme tokens (src/app/globals.css). */
+/* Recovix feed: maps the shared feed layout onto Recovix theme tokens (src/app/globals.css). */
 .marketing-links a[aria-current="page"] { color: var(--green); }
 .rv-feed { max-width: 1220px; margin: auto; padding: 56px 24px 64px; }
 .rv-feed-intro { margin-bottom: 30px; }

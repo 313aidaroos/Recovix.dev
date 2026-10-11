@@ -1,7 +1,7 @@
 # Product Requirements Document
 
 ## Product
-Recovra — Recovery Intelligence Platform
+Recovix — Recovery Intelligence Platform
 
 ## Primary users
 - CFO / VP Finance

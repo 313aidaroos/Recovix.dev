@@ -47,7 +47,7 @@ export function SettingsPanel({ workspace, members, savedMessage = null }: { wor
             </tbody></table></div>
             {isAdmin ? (
               <>
-                <p className="muted-note">Teammates must create a Recovra account first; then add them here by email.</p>
+                <p className="muted-note">Teammates must create a Recovix account first; then add them here by email.</p>
                 <AddMemberForm/>
               </>
             ) : <p className="muted-note">Owners and admins can add members.</p>}
@@ -55,7 +55,7 @@ export function SettingsPanel({ workspace, members, savedMessage = null }: { wor
 
           <article className="panel settings-form" id="approvals">
             <div className="panel-title-row"><div><span className="panel-kicker">Approval policies</span><h3>Human control over money</h3></div></div>
-            <div className="approval-policy"><ShieldCheck size={19}/><div><strong>Human approval is required</strong><p>Only owner, admin and finance roles can approve a claim, and they must confirm evidence was reviewed. Recovra never submits claims or changes vendor accounts itself.</p></div><StatusBadge tone="good">Enforced</StatusBadge></div>
+            <div className="approval-policy"><ShieldCheck size={19}/><div><strong>Human approval is required</strong><p>Only owner, admin and finance roles can approve a claim, and they must confirm evidence was reviewed. Recovix never submits claims or changes vendor accounts itself.</p></div><StatusBadge tone="good">Enforced</StatusBadge></div>
             <div className="approval-policy"><ShieldCheck size={19}/><div><strong>Review threshold</strong><p>Findings at or above {formatMoney(organization.review_threshold ?? "1000", organization.currency)} are highlighted for controller review before a claim is prepared.</p></div><StatusBadge tone="neutral">Configurable</StatusBadge></div>
             <div className="approval-policy"><ShieldCheck size={19}/><div><strong>Unverified variance is never counted as found</strong><p>Findings marked “needs review” (charges with no contract term, missing activity data) are reported separately and cannot be approved until verified.</p></div><StatusBadge tone="good">Enforced</StatusBadge></div>
           </article>

@@ -70,9 +70,9 @@ export async function GET() {
     const began = Date.now();
     try {
       const walletUrl = process.env.APIXIS_WALLET_API_URL ?? "https://apixis-wallet.vercel.app";
-      // Wallet has no /health route. GET /api/v1/entitlements?app=recovra with our service key and no
+      // Wallet has no /health route. GET /api/v1/entitlements?app=recovix with our service key and no
       // owner is a harmless read that proves the API is up and the key is accepted (401/403 = bad key).
-      const response = await fetch(`${walletUrl.replace(/\/$/, "")}/api/v1/entitlements?app=recovra`, {
+      const response = await fetch(`${walletUrl.replace(/\/$/, "")}/api/v1/entitlements?app=recovix`, {
         headers: { authorization: `Bearer ${process.env.WALLET_API_KEY ?? process.env.APIXIS_WALLET_API_KEY}` }, cache: "no-store", signal: AbortSignal.timeout(5000),
       });
       const reachable = response.status < 500 && response.status !== 401 && response.status !== 403;

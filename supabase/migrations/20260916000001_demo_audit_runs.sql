@@ -1,4 +1,4 @@
--- Labeled Recovra demo audits. Isolated from tenant tables. Claims cannot be stored as sent.
+-- Labeled Recovix demo audits. Isolated from tenant tables. Claims cannot be stored as sent.
 create table if not exists public.demo_audit_runs (
   id uuid primary key default gen_random_uuid(),
   labeled_demo boolean not null default true,
@@ -21,7 +21,7 @@ create table if not exists public.demo_audit_runs (
 );
 
 comment on table public.demo_audit_runs is
-  'Recovra-owned labeled demo audits. Not tenant data. claims_sent is constrained to false.';
+  'Recovix-owned labeled demo audits. Not tenant data. claims_sent is constrained to false.';
 
 alter table public.demo_audit_runs enable row level security;
 

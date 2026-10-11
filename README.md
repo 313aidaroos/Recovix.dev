@@ -1,8 +1,8 @@
-# Recovra — Recovery Intelligence Platform
+# Recovix — Recovery Intelligence Platform
 
 **Tagline:** Find overcharges. Recover savings. Control spend.
 
-Recovra is designed as a universal reconciliation and recovery layer for business spend. It compares what a company **agreed to pay**, **was billed**, and **actually consumed/received**, then turns discrepancies into evidence-backed recovery opportunities and prevention controls.
+Recovix is designed as a universal reconciliation and recovery layer for business spend. It compares what a company **agreed to pay**, **was billed**, and **actually consumed/received**, then turns discrepancies into evidence-backed recovery opportunities and prevention controls.
 
 ## What is in this repo
 

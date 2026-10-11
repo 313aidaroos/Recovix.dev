@@ -2,7 +2,7 @@ import { OWNER_ADMIN_EMAILS } from "./redirects";
 
 type OwnerBootstrapResult = { status?: string; organization_id?: string } | null;
 
-export function recovraOwnerEmails(env: string | undefined = process.env.ADMIN_EMAILS): Set<string> {
+export function recovixOwnerEmails(env: string | undefined = process.env.ADMIN_EMAILS): Set<string> {
   const list = new Set<string>(OWNER_ADMIN_EMAILS);
   for (const raw of String(env ?? "").split(",")) {
     const email = raw.trim().toLowerCase();
@@ -11,10 +11,10 @@ export function recovraOwnerEmails(env: string | undefined = process.env.ADMIN_E
   return list;
 }
 
-/** Owner admin allowlist, case-insensitive. The DB (ensure_recovra_owner_account, support RLS) checks the same two addresses. */
-export function isRecovraOwnerEmail(email: string | null | undefined) {
+/** Owner admin allowlist, case-insensitive. The DB (ensure_recovix_owner_account, support RLS) checks the same two addresses. */
+export function isRecovixOwnerEmail(email: string | null | undefined) {
   const normalized = (email ?? "").trim().toLowerCase();
-  return Boolean(normalized) && recovraOwnerEmails().has(normalized);
+  return Boolean(normalized) && recovixOwnerEmails().has(normalized);
 }
 
 // Some sign-ups on this project are auto-confirmed, so email_confirmed_at alone does not prove the
@@ -40,15 +40,15 @@ export function isProvenOwner(
   user: { email?: string | null; email_confirmed_at?: string | null } | null | undefined,
   accessToken: string | null | undefined,
 ): boolean {
-  return Boolean(user?.email_confirmed_at) && isRecovraOwnerEmail(user?.email) && amrProvesEmail(accessToken);
+  return Boolean(user?.email_confirmed_at) && isRecovixOwnerEmail(user?.email) && amrProvesEmail(accessToken);
 }
 
 export async function ensureOwnerWorkspace(input: {
   email: string | null | undefined;
-  rpc: (name: "ensure_recovra_owner_account") => Promise<{ data: OwnerBootstrapResult; error: { message: string } | null }>;
+  rpc: (name: "ensure_recovix_owner_account") => Promise<{ data: OwnerBootstrapResult; error: { message: string } | null }>;
 }) {
-  if (!isRecovraOwnerEmail(input.email)) return { attempted: false as const };
-  const { data, error } = await input.rpc("ensure_recovra_owner_account");
+  if (!isRecovixOwnerEmail(input.email)) return { attempted: false as const };
+  const { data, error } = await input.rpc("ensure_recovix_owner_account");
   if (error) return { attempted: true as const, ok: false as const, error: error.message };
   return { attempted: true as const, ok: true as const, organizationId: data?.organization_id ?? null };
 }

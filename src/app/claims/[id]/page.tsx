@@ -31,7 +31,7 @@ export default async function ClaimPacketPage({ params }: { params: Promise<{ id
         <div className="claim-toolbar no-print"><Link href={`/opportunities/${id}`}>← Back to finding</Link></div>
         <section className="claim-letter claim-blocked">
           <h1>Approval required before a claim packet can be generated</h1>
-          <p>This case is currently <strong>{status.replace(/_/g, " ")}</strong>. An owner, admin or finance member must approve the amount on the finding page first. Recovra never prepares or sends a vendor claim without that step.</p>
+          <p>This case is currently <strong>{status.replace(/_/g, " ")}</strong>. An owner, admin or finance member must approve the amount on the finding page first. Recovix never prepares or sends a vendor claim without that step.</p>
           <p><Link href={`/opportunities/${id}`}>Open the finding to verify evidence and request approval →</Link></p>
         </section>
       </main>

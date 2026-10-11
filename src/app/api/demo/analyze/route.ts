@@ -12,7 +12,7 @@ const MAX_BYTES = 2 * 1024 * 1024;
 
 function payload(result: SampleAuditResult, persistence: DemoPersistResult | { persisted: false; reason: string }) {
   const persistedMessage = persistence.persisted
-    ? `Demo data. Findings calculated from the bundled templates and saved to Recovra's database as run ${persistence.id}. Nothing was claimed; human approval is required before any vendor claim.`
+    ? `Demo data. Findings calculated from the bundled templates and saved to Recovix's database as run ${persistence.id}. Nothing was claimed; human approval is required before any vendor claim.`
     : result.message;
   return {
     demo: true,
@@ -38,8 +38,8 @@ function payload(result: SampleAuditResult, persistence: DemoPersistResult | { p
 async function bundledSample() {
   const dir = join(process.cwd(), "public", "templates");
   const [invoiceCsv, rateSheetCsv] = await Promise.all([
-    readFile(join(dir, "recovra-invoice-template.csv"), "utf8"),
-    readFile(join(dir, "recovra-rate-sheet-template.csv"), "utf8"),
+    readFile(join(dir, "recovix-invoice-template.csv"), "utf8"),
+    readFile(join(dir, "recovix-rate-sheet-template.csv"), "utf8"),
   ]);
   const result = runBundledSampleAudit(invoiceCsv, rateSheetCsv);
   const persistence = await persistDemoAuditRun(result, demoTemplateContentHash(invoiceCsv, rateSheetCsv));
@@ -82,7 +82,7 @@ export async function POST(request: Request) {
     const result = await runSampleAuditFromFiles(invoice, rateSheet ?? undefined);
     return NextResponse.json(payload(result, {
       persisted: false,
-      reason: "Visitor uploads are audited in memory only and are not written to Recovra's database.",
+      reason: "Visitor uploads are audited in memory only and are not written to Recovix's database.",
     }));
   } catch (error) {
     return NextResponse.json({ demo: true, claimsSent: false, error: error instanceof Error ? error.message : "Audit failed." }, { status: 400 });

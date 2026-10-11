@@ -3,7 +3,7 @@
 This is a product engineering checklist, not legal advice.
 
 ## Data posture
-Recovra may process contracts, invoices, employee seat data, vendor accounts and operational records. Treat all customer documents as confidential business data.
+Recovix may process contracts, invoices, employee seat data, vendor accounts and operational records. Treat all customer documents as confidential business data.
 
 ## Required controls
 - Tenant isolation at every layer

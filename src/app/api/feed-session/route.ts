@@ -23,7 +23,7 @@ export async function GET() {
       method: "POST",
       headers: {
         authorization: `Bearer ${key}`,
-        "x-apixis-client": "recovra",
+        "x-apixis-client": "recovix",
         "x-apixis-sub": sub,
         "x-apixis-email": user.email,
         "content-type": "application/json",

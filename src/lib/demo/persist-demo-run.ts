@@ -16,7 +16,7 @@ export function demoTemplateContentHash(invoiceCsv: string, rateSheetCsv: string
 }
 
 /**
- * Writes Recovra's bundled sample audit to demo_audit_runs.
+ * Writes Recovix's bundled sample audit to demo_audit_runs.
  * Visitor uploads are never stored. Claims cannot be marked sent.
  */
 export async function persistDemoAuditRun(
@@ -24,7 +24,7 @@ export async function persistDemoAuditRun(
   contentHash: string,
 ): Promise<DemoPersistResult> {
   if (result.source !== "sample-templates") {
-    return { persisted: false, reason: "Visitor uploads are not stored. Only Recovra's labeled sample templates are persisted." };
+    return { persisted: false, reason: "Visitor uploads are not stored. Only Recovix's labeled sample templates are persisted." };
   }
   if (result.claimsSent) {
     return { persisted: false, reason: "Refusing to persist a run that sent claims." };

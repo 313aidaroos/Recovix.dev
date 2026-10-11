@@ -24,7 +24,7 @@ export type TransitionSpec = {
 };
 
 /**
- * The only way a recovery changes state. Recovra never contacts a vendor:
+ * The only way a recovery changes state. Recovix never contacts a vendor:
  * "mark_submitted" records that a human sent the claim through their own channel.
  */
 export const RECOVERY_TRANSITIONS: Record<RecoveryAction, TransitionSpec> = {

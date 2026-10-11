@@ -1,9 +1,9 @@
--- Auth/admin bootstrap and public support queue for Recovra.
+-- Auth/admin bootstrap and public support queue for Recovix.
 -- Customer audit documents stay in tenant-scoped tables/storage; support intake stores only message text.
 
 create table if not exists public.support_requests (
   id uuid primary key default gen_random_uuid(),
-  support_inbox text not null default 'recovra@apixis.dev',
+  support_inbox text not null default 'recovix@apixis.dev',
   routed_to text not null default 'awad@apixis.dev',
   requester_name text not null,
   requester_email text not null,
@@ -15,7 +15,7 @@ create table if not exists public.support_requests (
   metadata jsonb not null default '{}'::jsonb,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
-  constraint support_inbox_fixed check (support_inbox = 'recovra@apixis.dev'),
+  constraint support_inbox_fixed check (support_inbox = 'recovix@apixis.dev'),
   constraint support_route_fixed check (routed_to = 'awad@apixis.dev'),
   constraint support_status_check check (status in ('open','in_progress','closed')),
   constraint support_category_check check (category in ('billing_audit','document_upload','recovery_workflow','account_access','security','general')),
@@ -23,7 +23,7 @@ create table if not exists public.support_requests (
 );
 
 comment on table public.support_requests is
-  'Public Recovra support queue. Routed to awad@apixis.dev. Does not store customer source documents or send recovery claims.';
+  'Public Recovix support queue. Routed to awad@apixis.dev. Does not store customer source documents or send recovery claims.';
 
 alter table public.support_requests enable row level security;
 
@@ -77,7 +77,7 @@ begin
   insert into public.support_requests (
     support_inbox, routed_to, requester_name, requester_email, company, category, subject, message, metadata
   ) values (
-    'recovra@apixis.dev', 'awad@apixis.dev', trim(p_name), v_email, nullif(trim(coalesce(p_company, '')), ''),
+    'recovix@apixis.dev', 'awad@apixis.dev', trim(p_name), v_email, nullif(trim(coalesce(p_company, '')), ''),
     v_category, trim(p_subject), trim(p_message), jsonb_build_object('source', 'public_support_form', 'claimsSent', false)
   ) returning id into v_id;
 
@@ -88,7 +88,7 @@ $$;
 revoke all on function public.create_support_request(text, text, text, text, text, text) from public;
 grant execute on function public.create_support_request(text, text, text, text, text, text) to anon, authenticated;
 
-create or replace function public.ensure_recovra_owner_account()
+create or replace function public.ensure_recovix_owner_account()
 returns jsonb
 language plpgsql
 security definer
@@ -119,10 +119,10 @@ begin
   limit 1;
 
   if v_org is null then
-    select id into v_org from public.organizations where slug = 'recovra-admin' limit 1;
+    select id into v_org from public.organizations where slug = 'recovix-admin' limit 1;
     if v_org is null then
       insert into public.organizations (name, slug, currency, review_threshold)
-      values ('Recovra Admin', 'recovra-admin', 'USD', 1000)
+      values ('Recovix Admin', 'recovix-admin', 'USD', 1000)
       returning id into v_org;
     end if;
     insert into public.organization_members (organization_id, user_id, role)
@@ -144,8 +144,8 @@ begin
 end;
 $$;
 
-revoke all on function public.ensure_recovra_owner_account() from public, anon;
-grant execute on function public.ensure_recovra_owner_account() to authenticated;
+revoke all on function public.ensure_recovix_owner_account() from public, anon;
+grant execute on function public.ensure_recovix_owner_account() to authenticated;
 
 drop trigger if exists support_requests_touch_updated_at on public.support_requests;
 create trigger support_requests_touch_updated_at

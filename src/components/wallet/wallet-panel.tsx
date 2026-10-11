@@ -12,9 +12,9 @@ export function WalletPanel({ returnPath }: { returnPath: WalletReturnPath }) {
         </div>
         <StatusBadge tone="neutral">Wallet checkout</StatusBadge>
       </div>
-      <p className="muted-note">Ixis is purchased in Apixis Wallet. Card charges and the cash credit happen there. Recovra only redeems Ixis against a plan.</p>
+      <p className="muted-note">Ixis is purchased in Apixis Wallet. Card charges and the cash credit happen there. Recovix only redeems Ixis against a plan.</p>
       <BuyIxisLink returnPath={returnPath} className="primary-button" icon />
-      <p className="muted-note">Balance stays on Apixis Wallet until a signed-in Wallet session can be read here. Recovra does not invent a balance.</p>
+      <p className="muted-note">Balance stays on Apixis Wallet until a signed-in Wallet session can be read here. Recovix does not invent a balance.</p>
     </article>
   );
 }

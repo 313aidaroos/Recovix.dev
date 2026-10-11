@@ -46,7 +46,7 @@ export function LiveDashboard({ data, organizationName, currency }: { data: Dash
       {!hasData && (
         <EmptyState
           title="Load your first rate sheet and invoice"
-          description="Upload a vendor rate sheet (CSV/XLSX) and then an invoice file. Recovra audits every line against contracted rates, fuel percentages and free-time terms and opens recovery cases for each finding."
+          description="Upload a vendor rate sheet (CSV/XLSX) and then an invoice file. Recovix audits every line against contracted rates, fuel percentages and free-time terms and opens recovery cases for each finding."
         />
       )}
 

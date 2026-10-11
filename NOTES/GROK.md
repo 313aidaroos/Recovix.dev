@@ -13,33 +13,33 @@ Grok Bot (Developer Bot hub + product leads) notes. Every change Grok Bot makes 
 Claude activity was present; the earlier “no Claude activity” line was incorrect. Each item below has an undo pointer.
 
 - **Claude, 2026-10-04 6:31 PM CT — PR #25, merge `12e9366ee5ff5e3ec6bfc236447375fa65ac3f66`:** notes: Claude full-portfolio review 2026-10-04 (NOTES/CLAUDE.md, AI_CHANGELOG); added `NOTES/CLAUDE.md` and `AI_CHANGELOG.md` (notes/docs only). Undo: `git revert 12e9366ee5ff5e3ec6bfc236447375fa65ac3f66`.
-- **2026-10-04 6:45 PM CT — 313aidaroos:** `notes: Recovra Lead review of Claude 10/4 work (notes only) [skip ci]` landed as `2f55d5041b2f72c032361018f75861ad1d84bdb3`. Where: commit `2f55d5041b2f72c032361018f75861ad1d84bdb3`. Undo: `git revert 2f55d5041b2f72c032361018f75861ad1d84bdb3`.
+- **2026-10-04 6:45 PM CT — 313aidaroos:** `notes: Recovix Lead review of Claude 10/4 work (notes only) [skip ci]` landed as `2f55d5041b2f72c032361018f75861ad1d84bdb3`. Where: commit `2f55d5041b2f72c032361018f75861ad1d84bdb3`. Undo: `git revert 2f55d5041b2f72c032361018f75861ad1d84bdb3`.
 
 ## 2026-09-27 (CT) — Developer Bot (hub)
-- Wallet registration: added `recovra` to `wallet_api_clients` in Supabase project `kzneeksminozmhnqaaun`, with `require_sso=false`.
-- Callback URLs registered: https://recovra-three.vercel.app/auth/apixis/callback.
-- Vercel env: replaced `WALLET_API_KEY` with a per-product `apx_live_` key, added `APIXIS_CLIENT_ID=recovra`, and left legacy `APIXIS_WALLET_API_KEY` present (name-only check); production was redeployed from the same product commit.
+- Wallet registration: added `recovix` to `wallet_api_clients` in Supabase project `kzneeksminozmhnqaaun`, with `require_sso=false`.
+- Callback URLs registered: https://recovix-three.vercel.app/auth/apixis/callback.
+- Vercel env: replaced `WALLET_API_KEY` with a per-product `apx_live_` key, added `APIXIS_CLIENT_ID=recovix`, and left legacy `APIXIS_WALLET_API_KEY` present (name-only check); production was redeployed from the same product commit.
 - Cleanup status: the attempted deletion of legacy `APIXIS_WALLET_API_KEY` variables was stopped at about 22:45 CT; no deletion was made here.
-- Undo: restore `WALLET_API_KEY` to its legacy value and deactivate the `recovra` client row.
+- Undo: restore `WALLET_API_KEY` to its legacy value and deactivate the `recovix` client row.
 
-## 2026-09-27 — Balance pill rollout: Recovra left unmerged (Grok Bot)
-- **What:** No code changed. Awad approved the header Wallet balance pill on all products; Recovra's version was to build on Claude's open PR #4 (Apixis ID + shared Wallet).
+## 2026-09-27 — Balance pill rollout: Recovix left unmerged (Grok Bot)
+- **What:** No code changed. Awad approved the header Wallet balance pill on all products; Recovix's version was to build on Claude's open PR #4 (Apixis ID + shared Wallet).
 - **Why stopped:** bringing main into #4 conflicts in payment/entitlement code: `src/lib/wallet/actions.ts` (main uses `grant_plan_entitlement_as_service`, #4 uses `grant_plan_entitlement_for`) and `src/lib/supabase/service.ts`. #4 also adds migration `20260923000001_plan_entitlement_service_only.sql`, which main has replaced with `20260923000001_lock_plan_entitlements.sql`. These are competing payment implementations, so they can't be resolved cleanly on the product-display side.
 - **Next:** Claude rebases #4 onto main (keep main's entitlement code and migration), then add the balance pill; or a balance-only PR once Awad OKs it.
 - **Undo:** nothing to undo.
 
-## 2026-09-28 (CT) — Grok Developer Bot: own Apixis world agent for every new Recovra signup
-- What: new Recovra accounts (created after 2026-09-28 07:30 UTC, email verified or signed in with Apixis ID) get their own Apixis world agent (default Apixis body, customizable later) plus the one-time 200 in-world Ixis starter grant. Server-side: `GET /api/apixis/world-agent` calls Apixis.dev `POST https://www.apixis.dev/api/agent/provision` with `APIXIS_WORLD_KEY` (Vercel env, sensitive). Idempotent (Apixis-side unique constraints + a flag on the Recovra account). One-time welcome card (Cixy as guide, agent name, Enter via Apixis ID, Not now) at the top of the Command Center (`/dashboard`, live workspaces), plus an "Apixis World ↗" nav link. "Back to Recovra" from the world lands on `/dashboard`. No backfill of older accounts.
+## 2026-09-28 (CT) — Grok Developer Bot: own Apixis world agent for every new Recovix signup
+- What: new Recovix accounts (created after 2026-09-28 07:30 UTC, email verified or signed in with Apixis ID) get their own Apixis world agent (default Apixis body, customizable later) plus the one-time 200 in-world Ixis starter grant. Server-side: `GET /api/apixis/world-agent` calls Apixis.dev `POST https://www.apixis.dev/api/agent/provision` with `APIXIS_WORLD_KEY` (Vercel env, sensitive). Idempotent (Apixis-side unique constraints + a flag on the Recovix account). One-time welcome card (Cixy as guide, agent name, Enter via Apixis ID, Not now) at the top of the Command Center (`/dashboard`, live workspaces), plus an "Apixis World ↗" nav link. "Back to Recovix" from the world lands on `/dashboard`. No backfill of older accounts.
 - Where: `src/app/api/apixis/world-agent/route.ts`, `src/components/apixis-world-welcome.tsx`, `src/lib/apixis-world.ts`, `src/lib/apixis-world-provision.ts`, `src/lib/apixis-world-agent.ts`, `src/lib/apixis-world-agent.test.ts`, `src/app/(platform)/dashboard/page.tsx`, `src/components/app-shell.tsx`, `public/cixy/cixy-combo-a-avatar.webp`, `.env.example`.
 - Not touched: login/signup pages, Wallet pill/balance route, Stripe/payments, existing accounts.
 - Undo: revert the PR's squash commit; optionally remove Vercel env `APIXIS_WORLD_KEY` (the route then does nothing). Agents already created stay in Apixis.dev `apixis.agents`.
 
-## 2026-10-02 (CT): Backfill by Recovra Lead (Grok) of everything since the last entry
+## 2026-10-02 (CT): Backfill by Recovix Lead (Grok) of everything since the last entry
 Read-only backfill made at Awad's request; this commit touches only this file. Times are CT, taken from GitHub merge and close timestamps. Authors are given as the PR branch or commit shows them; all merges went through the `313aidaroos` account.
-- **2026-09-27 10:17 PM, PR #9 merged (Recovra Lead, `recovra-lead/live-bugfixes-0927`, squash `1bf4c76`).** Live plan gate fixed (has_active_plan); migrations renamed to `20260922000001-3` (0010 dropped) with live `schema_migrations` aligned; Wallet health probe fixed; `docs/LAUNCH_NOTES.md` refreshed. Files: `src/app/api/health/route.ts`, `supabase/migrations/*`, `supabase/README.md`, `docs/LAUNCH_NOTES.md`. Undo: revert `1bf4c76` (DB migration history would need re-aligning by hand).
+- **2026-09-27 10:17 PM, PR #9 merged (Recovix Lead, `recovix-lead/live-bugfixes-0927`, squash `1bf4c76`).** Live plan gate fixed (has_active_plan); migrations renamed to `20260922000001-3` (0010 dropped) with live `schema_migrations` aligned; Wallet health probe fixed; `docs/LAUNCH_NOTES.md` refreshed. Files: `src/app/api/health/route.ts`, `supabase/migrations/*`, `supabase/README.md`, `docs/LAUNCH_NOTES.md`. Undo: revert `1bf4c76` (DB migration history would need re-aligning by hand).
 - **2026-09-28 4:08 AM, PR #11 merged (Juno, `junoai/ai-changelog`, `b6ab105`).** Added `AGENTS.md` and `AI_CHANGELOG.md`, which require AI change notes. Undo: revert `b6ab105`.
 - **2026-09-28 4:58 AM, PR #12 merged (Juno, `junoai/ci`, `61bf3be`).** Shared CI `.github/workflows/ci.yml` plus `JUNOAI_NOTES.md`. Undo: revert `61bf3be`.
-- **2026-09-29, PR #13 opened and updated (Grok/Recovra Lead, `grok/ixis-footer`, last commit `52a6d87`).** Adds an "Other Ixis companies" footer row (list in `src/lib/ixis-companies.ts`, 11 sites after Awad removed Nursery Toons and Qahwah World). **Still OPEN, not merged**; it may now overlap the `/companies` page (#20), so Awad decides whether to keep or close it. Undo: close the PR.
+- **2026-09-29, PR #13 opened and updated (Grok/Recovix Lead, `grok/ixis-footer`, last commit `52a6d87`).** Adds an "Other Ixis companies" footer row (list in `src/lib/ixis-companies.ts`, 11 sites after Awad removed Nursery Toons and Qahwah World). **Still OPEN, not merged**; it may now overlap the `/companies` page (#20), so Awad decides whether to keep or close it. Undo: close the PR.
 - **2026-09-29 11:43 PM, direct-to-main commit `f298bd9` (Awad Alaidaroos).** `src/app/auth/callback/route.ts` now accepts both signup and magiclink tokens. Undo: revert `f298bd9`.
 - **2026-09-30 1:23 AM, PR #15 merged (Codex, `codex/tester-readiness`, `d6eabae`).** Apixis ID start and callback routes (`src/app/auth/apixis/start|callback/route.ts`); plan activates only after a confirmed Wallet capture via an idempotent activation RPC and a service-only receipt journal (migration `supabase/migrations/20260930061055_tester_plan_activation.sql`); purchases limited to verified users with billing roles; health reports when plan activation isn't configured. Also touched login, sign-in form, redeem button, `src/lib/wallet/actions.ts`, `src/lib/auth/redirects.ts`, `src/lib/apixis-*.ts`. Undo: revert `d6eabae` (the migration's DB objects would need a down migration).
 - **2026-09-30 2:34 AM, PR #16 merged (Claude, `claude/awesome-newton-3tygzi`, `ab2748b`).** Re-synced shared Apixis kits: login (`verifyOtp` type email), SDK v3.1, world kit (15 clients). Files: `src/lib/apixis-login.ts`, `src/lib/apixis-wallet.ts`, `src/lib/apixis-world*.ts`. Undo: revert `ab2748b`.
@@ -48,21 +48,21 @@ Read-only backfill made at Awad's request; this commit touches only this file. T
 - **2026-10-01 11:10 PM, PR #19 merged (Claude, `6c77ebd`).** Starter in-world Ixis wording changed from 200 to 1,000 (D11) in the world-agent route, welcome card and tests. Undo: revert `6c77ebd`.
 - **2026-10-01 11:18 PM, PRs #14 and #4 closed, not merged (Claude Code via `313aidaroos`, part of the 10/2 family PR cleanup).** #14 (`grok/one-account`) and #4 (`claude/apixis-id-shared-wallet`) were closed as superseded by main's shared kits. Both branches are kept. Undo: reopen the PRs. Note from the 10/2 read-only check: the close comment on #14 says main has "the Wallet pill", but main's header only has a Buy Ixis link, with no balance route or chip, so the balance pill is still to do.
 - **2026-10-02 2:47 AM, PR #20 merged (Codex, `codex/apixis-companies-20261002`, `650ac65`).** New `/companies` "Apixis Companies" page (`src/app/companies/page.tsx`, `companies.css`, images in `public/companies/`) and a homepage nav link in `src/app/page.tsx`. Undo: revert `650ac65`.
-- **2026-10-02 3:19 AM, PR #21 merged (Codex, `codex/fix-recovra-company-link-20261002`, `e279801`).** Fixed the Recovra link on `/companies`. Undo: revert `e279801`.
+- **2026-10-02 3:19 AM, PR #21 merged (Codex, `codex/fix-recovix-company-link-20261002`, `e279801`).** Fixed the Recovix link on `/companies`. Undo: revert `e279801`.
 - **Env, DB and deploys:** no Vercel env changes by Grok since 9/27. Production auto-deploys main; it is currently on `e279801` (deploy success). As of 10/2, `/api/health` is degraded: Anthropic returns 400, Resend returns 401, and plan activation reports "server key not configured" because `SUPABASE_SERVICE_ROLE_KEY` is missing (Awad). Leftover `STRIPE_*` env is untouched.
 - **Freeze:** per Awad's 10/2 STOP, nothing else is changing.
 
 ## 2026-10-04 (CT) — Grok: owner admin allowlist (alaidaroosawad@gmail.com, awad@apixis.dev)
-- What: Awad's rule — both owner emails are the Recovra owner. How it works: on first sign-in with no workspace, `ensureOwnerWorkspace()` calls the DB function `ensure_recovra_owner_account()`, which makes the person `owner` of the "Recovra Admin" org and turns on both modules; the owner support queue (`/support/queue`, RLS on `support_requests`) is owner-only. Both were hardcoded to awad@apixis.dev. App: `isRecovraOwnerEmail()` now accepts both owner emails + optional `ADMIN_EMAILS` env, case-insensitive; the queue page uses it and needs a confirmed email. DB: new migration `supabase/migrations/20261004230000_owner_admin_emails.sql` lets either owner email bootstrap (verified email only) and read/update the support queue. Nobody else's access changed. No accounts or passwords were created.
-- Where: `src/lib/auth/redirects.ts`, `src/lib/auth/owner.ts`, `src/lib/auth/owner.test.ts`, `src/app/support/queue/page.tsx`, `supabase/migrations/20261004230000_owner_admin_emails.sql`; Vercel env `ADMIN_EMAILS` on project `recovra` (production + preview).
+- What: Awad's rule — both owner emails are the Recovix owner. How it works: on first sign-in with no workspace, `ensureOwnerWorkspace()` calls the DB function `ensure_recovra_owner_account()`, which makes the person `owner` of the "Recovix Admin" org and turns on both modules; the owner support queue (`/support/queue`, RLS on `support_requests`) is owner-only. Both were hardcoded to awad@apixis.dev. App: `isRecovraOwnerEmail()` now accepts both owner emails + optional `ADMIN_EMAILS` env, case-insensitive; the queue page uses it and needs a confirmed email. DB: new migration `supabase/migrations/20261004230000_owner_admin_emails.sql` lets either owner email bootstrap (verified email only) and read/update the support queue. Nobody else's access changed. No accounts or passwords were created.
+- Where: `src/lib/auth/redirects.ts`, `src/lib/auth/owner.ts`, `src/lib/auth/owner.test.ts`, `src/app/support/queue/page.tsx`, `supabase/migrations/20261004230000_owner_admin_emails.sql`; Vercel env `ADMIN_EMAILS` on project `recovix` (production + preview).
 - Needs Awad: the migration is NOT applied to prod yet (no SQL access from this session). Until it is, alaidaroosawad@gmail.com passes the app check but the DB still refuses the bootstrap and shows an empty queue; awad@apixis.dev works as before. Apply it with Supabase MCP `apply_migration` or the SQL editor.
 - Who: Grok.
-- Undo: `git revert <squash SHA>`, delete `ADMIN_EMAILS` in Vercel → recovra → Settings → Environment Variables; DB: re-run the function and the two policies from `20260916000002_auth_owner_support.sql`.
+- Undo: `git revert <squash SHA>`, delete `ADMIN_EMAILS` in Vercel → recovix → Settings → Environment Variables; DB: re-run the function and the two policies from `20260916000002_auth_owner_support.sql`.
 
-## 2026-10-04 (CT) — Grok Bot: Feed tab on Recovra (PR open, NOT merged)
+## 2026-10-04 (CT) — Grok Bot: Feed tab on Recovix (PR open, NOT merged)
 - Why: Awad asked for the Socixis Social family feed as a Feed tab on every Ixis site. Awad put feed changes on hold, so this PR is for preview review only; do not merge until Awad says so.
-- What: new public `/feed` page in Recovra's own shell (same header, footer, fonts, colors and buttons). For You is the unfiltered mixed feed from every Apixis company with source-site badges and AI labels; Following, Search · Trending and You tabs; video/photo/text posts, like, comment, follow, save, share, report, tips and boosts in Ixis. Signed-out visitors can browse; the 4th tab says "You" and shows a sign-in card (Apixis ID). Text-only posts use the site's body font, wrap long words and size to their content; media posts keep the full-height layout; feed modals sit above everything.
-- Where: `src/app/feed/` (page with the home page's own marketing nav + footer, Recovra skin, `feed.css` mapped to Recovra tokens), `src/feed-client/` (shared client), `src/app/api/feed-session/route.ts`, "Feed" link in the home nav (`src/app/page.tsx`), lint override scoped to `src/feed-client/**` in `eslint.config.mjs`, `src/lib/feed-client.test.ts`.
+- What: new public `/feed` page in Recovix's own shell (same header, footer, fonts, colors and buttons). For You is the unfiltered mixed feed from every Apixis company with source-site badges and AI labels; Following, Search · Trending and You tabs; video/photo/text posts, like, comment, follow, save, share, report, tips and boosts in Ixis. Signed-out visitors can browse; the 4th tab says "You" and shows a sign-in card (Apixis ID). Text-only posts use the site's body font, wrap long words and size to their content; media posts keep the full-height layout; feed modals sit above everything.
+- Where: `src/app/feed/` (page with the home page's own marketing nav + footer, Recovix skin, `feed.css` mapped to Recovix tokens), `src/feed-client/` (shared client), `src/app/api/feed-session/route.ts`, "Feed" link in the home nav (`src/app/page.tsx`), lint override scoped to `src/feed-client/**` in `eslint.config.mjs`, `src/lib/feed-client.test.ts`.
 - Backend: https://www.apixis.dev/api/feed. `/api/feed-session` calls POST /api/feed/session server-side with the existing `APIXIS_WORLD_KEY` + X-Apixis-Client/Sub/Email and returns the short-lived fdt_ token. No new env vars, no DB change, no SVGs.
 - Who: Grok Bot (for Awad).
 - Undo: close this PR, or `git revert <squash sha>` if it is ever merged.
@@ -75,7 +75,7 @@ Read-only backfill made at Awad's request; this commit touches only this file. T
 ## 2026-10-04 — Owner bypass for the plan gate; owner migration applied (Grok)
 - Applied: supabase/migrations/20261004230000_owner_admin_emails.sql was applied to prod ewvgpfufzeyzyutjxuoh via the Supabase MCP. Verified that the owner function includes alaidaroosawad@gmail.com and the 2 support policies were updated.
 - What: requireActiveSubscription() (the /documents upload/audit gate) is skipped for a session-proven owner: a confirmed owner email (alaidaroosawad@gmail.com, awad@apixis.dev, plus ADMIN_EMAILS) AND an email-proving sign-in (magic link/OTP, Apixis ID/OAuth, recovery). A password-only session never gets the bypass. This is a product gate only: no subscription row, no Wallet call. Real Wallet purchases still work as normal.
-- Found: Recovra auth has alaidaroosawad@gmail.com created and confirmed at the same instant (2026-09-12, password), so it is possibly auto-confirmed. Not touched.
+- Found: Recovix auth has alaidaroosawad@gmail.com created and confirmed at the same instant (2026-09-12, password), so it is possibly auto-confirmed. Not touched.
 - Where: src/lib/auth/owner.ts (amrProvesEmail, isProvenOwner), src/lib/auth/subscription.ts, and tests in src/lib/auth/owner.test.ts.
 - Who: Grok.
 - Undo: revert this PR.
@@ -85,23 +85,23 @@ The entries below record the day's observed commits and merged PRs. Existing det
 
 ### Commits
 - `8fe86ef` (2026-10-04T18:14:42-05:00, 313aidaroos; alaidaroosawad@gmail.com) — Owner bypass for plan gate (session-proven owner only); NOTES: owner migration applied (#23). Undo: undo via the merged PR below: git revert 8fe86ef.
-- `dc7d1a1` (2026-10-04T17:47:38-05:00, 313aidaroos; alaidaroosawad@gmail.com) — Owner admin allowlist: both owner emails own Recovra (app + migration) (#22). Undo: undo via the merged PR below: git revert dc7d1a1.
+- `dc7d1a1` (2026-10-04T17:47:38-05:00, 313aidaroos; alaidaroosawad@gmail.com) — Owner admin allowlist: both owner emails own Recovix (app + migration) (#22). Undo: undo via the merged PR below: git revert dc7d1a1.
 - `f84f12c` (2026-10-04T18:17:51-05:00, 313aidaroos; 313aidaroos@users.noreply.github.com) — Feed tab: Socixis Social family feed at /feed (preview only, do not merge). Undo: no main change; close/delete the branch (or revert the branch commit before reuse).
 
 ### Merged PRs
 - PR #23, merge `8fe86ef`, `grok/owner-bypass` → `main`, merged 2026-10-04 CT by 313aidaroos: Owner bypass for plan gate (session-proven owner only); NOTES: owner migration applied. Undo: `git revert 8fe86ef`.
 - PR #22, merge `dc7d1a1`, `grok/owner-admin-allowlist` → `main`, merged 2026-10-04 CT by 313aidaroos: Owner admin allowlist for alaidaroosawad@gmail.com and awad@apixis.dev. Undo: `git revert dc7d1a1`.
 
-## 2026-10-04 6:50 PM (CT): Recovra Lead (Grok) review of Claude's 10/4 work
+## 2026-10-04 6:50 PM (CT): Recovix Lead (Grok) review of Claude's 10/4 work
 - **PR #25 merged 2026-10-04 6:31 PM CT (Claude Code, `claude/great-fermi-6brq7a`, `12e9366`).** Notes only: added `NOTES/CLAUDE.md` (full-portfolio review) and an `AI_CHANGELOG.md` line. No code, env, DB or deploy change. Awad approved it ("okay merge it"). Undo: `git revert 12e9366`.
-- **Checked live by Recovra Lead (read-only):**
+- **Checked live by Recovix Lead (read-only):**
   - Prod `/api/health` is degraded: Supabase, Anthropic and Wallet are ok; Resend still returns 401; plan activation reports "server key not configured" (`SUPABASE_SERVICE_ROLE_KEY` is missing; needs Awad).
   - `add_organization_member` already requires the caller to be an org owner or admin (`has_org_role`), so Claude's open question is closed and needs no change.
   - The Ominix link `nexxis-tau.vercel.app` on `/companies` returns 200 and serves Ominix, so it isn't broken; it changes only if Ominix gets a new canonical host.
   - All 15 `/companies` links return 200.
   - The homepage has no religious text.
 - **Flagged, not changed:** `/companies` (Codex #20) draws its company icons as inline `<svg>`, and `src/app/icon.svg` is the favicon. If the no-SVG lock covers icons as well as Cixy art, Codex should swap them for real art.
-- Who: Recovra Lead (Grok). This commit touches only this file. Undo: revert this commit.
+- Who: Recovix Lead (Grok). This commit touches only this file. Undo: revert this commit.
 
 ## 2026-10-04 (CT) — Grok (Developer Bot hub): Cixy persona v2 sync + Ominix link
 - What: src/lib/apixis-cixy.ts: replaced the v1 Cixy kit (Muslim identity, Salam/Insha'Allah lines, halal 'clean recommendations') with v2. Product role: removed halal-conscious/haram/fatwa line, 'NOT A SCHOLAR' block and 'open with salaam' (now plain hello); chat welcome + /cixy placeholder say 'Hello'. Tests updated + religious-terms guard. Ominix link on /companies now https://ominix-app.vercel.app (URL string only; no SVG/design change).
@@ -125,7 +125,7 @@ Recorded by Grok (Developer Bot, notes and status sync at 9:25 PM CT). Every cha
 
 ## 2026-10-04 (CT) — Grok: new accounts only through Apixis ID (branch `grok/apixis-id-only-signup`)
 - Approval: Awad said go at 10:00 PM CT, Oct 4 2026 ("every Ixis product must allow NEW account creation only through Apixis ID", the shared Wallet SSO at apixis-wallet.vercel.app/sso/authorize).
-- What changed: `/signup` now offers only "Sign in with Apixis" (existing `primary-button wide` class, same card), Terms note kept, "Already have an account? Sign in". Removed the unused-after-this server actions `signUpAction` (email + password signup) and `signUpMagicLinkAction` (`src/lib/auth/actions.ts`). `sendMagicLinkAction` (/login email link) now uses `shouldCreateUser: false`: existing accounts still get a link; a new email gets "No Recovra account uses this email yet… use Sign in with Apixis". Password sign-in unchanged. Team invite copy says to create an account with Sign in with Apixis.
+- What changed: `/signup` now offers only "Sign in with Apixis" (existing `primary-button wide` class, same card), Terms note kept, "Already have an account? Sign in". Removed the unused-after-this server actions `signUpAction` (email + password signup) and `signUpMagicLinkAction` (`src/lib/auth/actions.ts`). `sendMagicLinkAction` (/login email link) now uses `shouldCreateUser: false`: existing accounts still get a link; a new email gets "No Recovix account uses this email yet… use Sign in with Apixis". Password sign-in unchanged. Team invite copy says to create an account with Sign in with Apixis.
 - Not changed: Supabase project setting "Allow new users to sign up" stays ON (Apixis SSO callback may create users through it). Theme, layout and styles unchanged. No Wallet, Stripe or Cixy files touched.
 - Undo: `git revert <squash sha of this PR>` (the sha is recorded in the PR and in /workspace/apixisid/STATUS.md on the box).
 
@@ -133,9 +133,9 @@ Recorded by Grok (Developer Bot, notes and status sync at 9:25 PM CT). Every cha
 
 Recorded by Grok (Developer Bot, notes and status sync at 12:25 AM CT on Oct 5). Each change below either has its own detailed entry earlier in this file (written by whoever made it) or is described here. Commits under the shared `313aidaroos` account were made by the bot or lead named in the detailed entry. Every production deployment for this repo was Ready at the time of this sync. Text only, no code or settings changed.
 
-- Oct 4 10:29 PM, PR #27, `19108bd`: Apixis ID is the only way to create a Recovra account. Undo: `git revert 19108bd` on `main`, then redeploy production.
+- Oct 4 10:29 PM, PR #27, `19108bd`: Apixis ID is the only way to create a Recovix account. Undo: `git revert 19108bd` on `main`, then redeploy production.
 
 ## 2026-10-06 — Merging into Deduxis; pricing locked
-- Recovra is merging into Deduxis as its "Recover" section (locked by Awad). See NOTES/PRICING.md.
-- Old Wallet SKUs recovra.intel.monthly / recovra.intel.growth to be retired.
+- Recovix is merging into Deduxis as its "Recover" section (locked by Awad). See NOTES/PRICING.md.
+- Old Wallet SKUs recovix.intel.monthly / recovix.intel.growth to be retired.
 - Code merge into Deduxis, redirect, and SKU retirement still to do.

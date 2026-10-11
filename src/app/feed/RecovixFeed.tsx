@@ -3,7 +3,7 @@ import { useMemo } from "react";
 import { createFeedClient } from "@/feed-client/api";
 import { FeedView, type FeedSkin } from "@/feed-client/FeedView";
 
-// Recovra skin: only Recovra's own classes from src/app/globals.css (panel, primary-cta, secondary-button, chip…). Layout in ./feed.css.
+// Recovix skin: only Recovix's own classes from src/app/globals.css (panel, primary-cta, secondary-button, chip…). Layout in ./feed.css.
 const skin: FeedSkin = {
   tabs: "rv-feed-tabs",
   tab: "rv-feed-tab",
@@ -24,10 +24,10 @@ const skin: FeedSkin = {
   empty: "rv-feed-muted",
   listRow: "rv-feed-row",
   signInUrl: "/auth/apixis/start?next=%2Ffeed",
-  buyIxisUrl: "https://apixis-wallet.vercel.app/buy?product=recovra",
+  buyIxisUrl: "https://apixis-wallet.vercel.app/buy?product=recovix",
 };
 
-export function RecovraFeed() {
-  const client = useMemo(() => createFeedClient({ client: "recovra", sessionUrl: "/api/feed-session" }), []);
-  return <FeedView client={client} skin={skin} siteName="Recovra" />;
+export function RecovixFeed() {
+  const client = useMemo(() => createFeedClient({ client: "recovix", sessionUrl: "/api/feed-session" }), []);
+  return <FeedView client={client} skin={skin} siteName="Recovix" />;
 }

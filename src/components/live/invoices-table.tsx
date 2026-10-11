@@ -14,7 +14,7 @@ export function InvoicesTable({ rows }: { rows: InvoiceListItem[] }) {
     <>
       <PageHeader eyebrow="Billing intelligence" title="Invoices" description="Every ingested invoice, its audit state and the variance found against your contracted terms." actions={<Link className="primary-button" href="/documents"><UploadCloud size={15}/> Upload invoice</Link>}/>
       {rows.length === 0 ? (
-        <EmptyState title="No invoices ingested yet" description="Upload an invoice CSV or XLSX in the Document Center. Recovra normalizes each line and audits it immediately."/>
+        <EmptyState title="No invoices ingested yet" description="Upload an invoice CSV or XLSX in the Document Center. Recovix normalizes each line and audits it immediately."/>
       ) : (
         <section className="panel resource-panel">
           <div className="active-filters"><span>Live tenant data</span><span>Newest first</span><small>{rows.length} invoice{rows.length === 1 ? "" : "s"}</small></div>

@@ -12,8 +12,8 @@ import { enterApixisUrl } from "@/lib/apixis-world";
 
 export const dynamic = "force-dynamic";
 
-const CLIENT = "recovra";
-// Accounts created before Recovra shipped this are not auto-provisioned (no backfill).
+const CLIENT = "recovix";
+// Accounts created before Recovix shipped this are not auto-provisioned (no backfill).
 const ROLLOUT_AT = "2026-09-28T07:30:00.000Z";
 
 async function currentUser() {

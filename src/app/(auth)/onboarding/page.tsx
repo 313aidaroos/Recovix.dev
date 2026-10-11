@@ -4,7 +4,7 @@ import { CreateOrganizationForm } from "@/components/auth/create-organization-fo
 import { signOutAction } from "@/lib/auth/actions";
 import { getWorkspace } from "@/lib/auth/workspace";
 
-export const metadata: Metadata = { title: "Create organization · Recovra" };
+export const metadata: Metadata = { title: "Create organization · Recovix" };
 
 export default async function OnboardingPage() {
   const workspace = await getWorkspace();

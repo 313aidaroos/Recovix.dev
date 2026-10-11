@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getWorkspace } from "@/lib/auth/workspace";
 import { CixyChat } from "@/components/cixy/chat";
 
-export const metadata: Metadata = { title: "Cixy · Recovery Intelligence · Recovra" };
+export const metadata: Metadata = { title: "Cixy · Recovery Intelligence · Recovix" };
 
 export default async function CixyPage() {
   const workspace = await getWorkspace();

@@ -14,7 +14,7 @@ export function SupportForm() {
   return (
     <section className="support-grid">
       <article className="panel upload-panel">
-        <div className="panel-title-row"><div><span className="panel-kicker">Support intake</span><h3>Ask Recovra support</h3></div><LifeBuoy size={20}/></div>
+        <div className="panel-title-row"><div><span className="panel-kicker">Support intake</span><h3>Ask Recovix support</h3></div><LifeBuoy size={20}/></div>
         <form action={action} className="workflow-form">
           <label className="field-label">Name<input name="name" required placeholder="Your name"/></label>
           <label className="field-label">Work email<input name="email" type="email" required placeholder="you@company.com"/></label>
@@ -38,7 +38,7 @@ export function SupportForm() {
       <article className="panel">
         <span className="panel-kicker">Routing</span>
         <h3>{SUPPORT_INBOX}</h3>
-        <p className="muted-note">Requests enter Recovra’s support queue and are routed to {SUPPORT_ROUTE_TO}. Customer audit files stay tenant-isolated in the signed-in workspace; this public form stores only the support message.</p>
+        <p className="muted-note">Requests enter Recovix’s support queue and are routed to {SUPPORT_ROUTE_TO}. Customer audit files stay tenant-isolated in the signed-in workspace; this public form stores only the support message.</p>
         <p className="muted-note">No recovery claims are sent from support intake. Claim packets still require authenticated human approval.</p>
       </article>
     </section>

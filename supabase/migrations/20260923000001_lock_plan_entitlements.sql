@@ -12,8 +12,8 @@ begin
   if p_plan not in ('starter', 'growth') then
     raise exception 'invalid_plan';
   end if;
-  if (p_plan = 'starter' and p_product_key <> 'recovra.intel.monthly')
-     or (p_plan = 'growth' and p_product_key <> 'recovra.intel.growth') then
+  if (p_plan = 'starter' and p_product_key <> 'recovix.intel.monthly')
+     or (p_plan = 'growth' and p_product_key <> 'recovix.intel.growth') then
     raise exception 'plan_product_mismatch';
   end if;
   if coalesce(length(p_receipt), 0) < 8 then

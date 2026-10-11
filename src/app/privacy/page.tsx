@@ -3,7 +3,7 @@ import Link from "next/link";
 import { LegalLayout, type LegalSection } from "@/components/legal/legal-layout";
 import { legalConfig } from "@/lib/legal";
 
-export const metadata: Metadata = { title: "Privacy Policy", description: "How Recovra collects, uses, stores and protects data." };
+export const metadata: Metadata = { title: "Privacy Policy", description: "How Recovix collects, uses, stores and protects data." };
 
 const { productName, legalEntity, contactEmail, postalAddress, hosting } = legalConfig;
 

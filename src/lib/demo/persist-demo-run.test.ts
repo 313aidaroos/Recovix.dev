@@ -24,7 +24,7 @@ describe("demo persist guards", () => {
     const result = await persistDemoAuditRun({ ...base, source: "upload" }, "a".repeat(64));
     expect(result).toEqual({
       persisted: false,
-      reason: "Visitor uploads are not stored. Only Recovra's labeled sample templates are persisted.",
+      reason: "Visitor uploads are not stored. Only Recovix's labeled sample templates are persisted.",
     });
   });
 

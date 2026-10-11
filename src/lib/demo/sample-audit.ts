@@ -212,7 +212,7 @@ export function runBundledSampleAudit(invoiceCsv: string, rateSheetCsv: string):
     invoiceDocumentId: SAMPLE_INVOICE_DOCUMENT_ID,
     rateSheetDocumentId: SAMPLE_RATE_SHEET_DOCUMENT_ID,
     source: "sample-templates",
-    invoiceFilename: "recovra-invoice-template.csv",
-    rateSheetFilename: "recovra-rate-sheet-template.csv",
+    invoiceFilename: "recovix-invoice-template.csv",
+    rateSheetFilename: "recovix-rate-sheet-template.csv",
   });
 }
