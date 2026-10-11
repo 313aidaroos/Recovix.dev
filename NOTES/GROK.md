@@ -17,7 +17,7 @@ Claude activity was present; the earlier “no Claude activity” line was incor
 
 ## 2026-09-27 (CT) — Developer Bot (hub)
 - Wallet registration: added `recovix` to `wallet_api_clients` in Supabase project `kzneeksminozmhnqaaun`, with `require_sso=false`.
-- Callback URLs registered: https://recovix-three.vercel.app/auth/apixis/callback.
+- Callback URLs registered: https://recovix-dev.vercel.app/auth/apixis/callback.
 - Vercel env: replaced `WALLET_API_KEY` with a per-product `apx_live_` key, added `APIXIS_CLIENT_ID=recovix`, and left legacy `APIXIS_WALLET_API_KEY` present (name-only check); production was redeployed from the same product commit.
 - Cleanup status: the attempted deletion of legacy `APIXIS_WALLET_API_KEY` variables was stopped at about 22:45 CT; no deletion was made here.
 - Undo: restore `WALLET_API_KEY` to its legacy value and deactivate the `recovix` client row.

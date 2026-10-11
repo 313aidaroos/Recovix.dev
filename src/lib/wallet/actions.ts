@@ -75,7 +75,7 @@ export async function redeemIxisAction(_previous: WalletRedeemState, formData: F
 
     if (!result.ok) {
       // 402: Not enough Ixis
-      const returnUrl = `https://recovix-three.vercel.app/pricing`;
+      const returnUrl = `https://recovix-dev.vercel.app/pricing`;
       return {
         status: "insufficient",
         message: `You need ${result.needed.toLocaleString()} Ixis. You can buy more and return here.`,

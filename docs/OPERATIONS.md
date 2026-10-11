@@ -1,6 +1,6 @@
 # Recovix Operations Runbook
 
-Production: https://recovix-three.vercel.app · Database/Auth/Storage: Supabase project `recovix` (`ewvgpfufzeyzyutjxuoh`, us-east-1).
+Production: https://recovix-dev.vercel.app · Database/Auth/Storage: Supabase project `recovix` (`ewvgpfufzeyzyutjxuoh`, us-east-1).
 
 ## 1. Environment variables (Vercel → Project → Settings → Environment Variables)
 
@@ -40,8 +40,8 @@ With no variables set, a deployment connects to the production Supabase project 
 
 ## 2. Supabase Auth configuration (dashboard → Authentication → URL Configuration)
 
-- Site URL: `https://recovix-three.vercel.app`
-- Redirect URLs: `https://recovix-three.vercel.app/auth/callback`, `https://*.vercel.app/auth/callback` (previews), `http://localhost:3000/auth/callback`
+- Site URL: `https://recovix-dev.vercel.app`
+- Redirect URLs: `https://recovix-dev.vercel.app/auth/callback`, `https://*.vercel.app/auth/callback` (previews), `http://localhost:3000/auth/callback`
 - Email: either disable "Confirm email" for a frictionless pilot, or configure custom SMTP so
   confirmation and magic-link emails are delivered reliably (the built-in sender is rate-limited to a
   few emails per hour and rejects addresses it considers undeliverable).

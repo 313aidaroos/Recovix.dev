@@ -18,10 +18,10 @@ describe("safeNextPath", () => {
 
 describe("magicLinkRedirect", () => {
   it("builds the callback url on the current origin with a safe next", () => {
-    expect(magicLinkRedirect("https://recovix-three.vercel.app", "/support")).toBe("https://recovix-three.vercel.app/auth/callback?next=%2Fsupport");
+    expect(magicLinkRedirect("https://recovix-dev.vercel.app", "/support")).toBe("https://recovix-dev.vercel.app/auth/callback?next=%2Fsupport");
   });
   it("falls back to dashboard for unsafe next", () => {
-    expect(magicLinkRedirect("https://recovix-three.vercel.app", "//x")).toBe("https://recovix-three.vercel.app/auth/callback?next=%2Fdashboard");
+    expect(magicLinkRedirect("https://recovix-dev.vercel.app", "//x")).toBe("https://recovix-dev.vercel.app/auth/callback?next=%2Fdashboard");
   });
 });
 

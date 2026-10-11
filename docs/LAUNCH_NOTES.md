@@ -4,7 +4,7 @@ _Updated 2026-09-27 (Recovix Lead, after a full read-only audit of `main` @ e145
 
 ## Status
 
-**Live, but paid plans cannot be activated yet.** Production: https://recovix-three.vercel.app. The product lane is parked by Awad; only hub-approved bug fixes ship.
+**Live, but paid plans cannot be activated yet.** Production: https://recovix-dev.vercel.app. The product lane is parked by Awad; only hub-approved bug fixes ship.
 
 | Area | State (verified 2026-09-27) |
 |---|---|
@@ -21,7 +21,7 @@ _Updated 2026-09-27 (Recovix Lead, after a full read-only audit of `main` @ e145
 1. `SUPABASE_SERVICE_ROLE_KEY` (project `ewvgpfufzeyzyutjxuoh`): **required, missing.** Only Awad can copy it from the Supabase dashboard (Project settings, API keys). Server only, never `NEXT_PUBLIC_`.
 2. Apixis Wallet key: `WALLET_API_KEY` is set. `APIXIS_WALLET_API_URL` is set.
 3. AI: `ANTHROPIC_API_KEY` is set (shared family key).
-4. For PR #4 only (Sign in with Apixis): `APIXIS_CLIENT_ID=recovix`, plus register `https://recovix-three.vercel.app/auth/apixis/callback` on the Wallet.
+4. For PR #4 only (Sign in with Apixis): `APIXIS_CLIENT_ID=recovix`, plus register `https://recovix-dev.vercel.app/auth/apixis/callback` on the Wallet.
 
 Every key this repo reads is listed in `.env.example`.
 

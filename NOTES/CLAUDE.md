@@ -5,7 +5,7 @@ Dated notes from Claude (Claude Code), same purpose as `NOTES/GROK.md`: what Cla
 ## 2026-10-04 (UTC) — Claude: full-portfolio review (read-only; this note and the AI_CHANGELOG line are the only changes)
 
 ### Snapshot
-- Reviewed `main` @ `756f9f2`; the owner admin allowlist merged → `main` is `dc7d1a1`. Vercel `recovix` production READY. The live host is `recovix-three.vercel.app` — `recovix.vercel.app` is a different app (naming hazard in links).
+- Reviewed `main` @ `756f9f2`; the owner admin allowlist merged → `main` is `dc7d1a1`. Vercel `recovix` production READY. The live host is `recovix-dev.vercel.app` — `recovix-dev.vercel.app` is a different app (naming hazard in links).
 - Supabase `ewvgpfufzeyzyutjxuoh`: 12 tracked migrations, all applied, including `lock_plan_entitlements` (09-23: the free-paid-plan hole is closed) and `tester_plan_activation` (09-30).
 - Open PR per the family board: #13 footer.
 

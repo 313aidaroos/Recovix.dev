@@ -15,7 +15,7 @@
 export const APIXIS_WALLET_ORIGIN = "https://apixis-wallet.vercel.app";
 
 /** Production host from docs/OPERATIONS.md and docs/LAUNCH_CHECKLIST.md. */
-export const RECOVIX_PUBLIC_ORIGIN = "https://recovix-three.vercel.app";
+export const RECOVIX_PUBLIC_ORIGIN = "https://recovix-dev.vercel.app";
 
 export const WALLET_PRODUCT_ORIGIN = "recovix";
 

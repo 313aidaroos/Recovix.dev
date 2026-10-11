@@ -6,13 +6,13 @@ ordered by impact. Each one links to the exact screen.
 ## A. Go live (blocking)
 
 1. **Merge the release PR** — https://github.com/313aidaroos/Recovix/pull/2
-   Vercel deploys `main` to https://recovix-three.vercel.app automatically. No environment
+   Vercel deploys `main` to https://recovix-dev.vercel.app automatically. No environment
    variables are required.
-2. **Sign in and rotate the bootstrap password** — https://recovix-three.vercel.app/login
+2. **Sign in and rotate the bootstrap password** — https://recovix-dev.vercel.app/login
    Then Settings → Security → *Change password*. Create your organization on the onboarding screen.
 3. **Supabase Auth URLs** — https://supabase.com/dashboard/project/ewvgpfufzeyzyutjxuoh/auth/url-configuration
-   - Site URL: `https://recovix-three.vercel.app`
-   - Redirect URLs: `https://recovix-three.vercel.app/auth/callback`, `https://*.vercel.app/auth/callback`
+   - Site URL: `https://recovix-dev.vercel.app`
+   - Redirect URLs: `https://recovix-dev.vercel.app/auth/callback`, `https://*.vercel.app/auth/callback`
    Applied for the current Vercel URL. Update again after adding a custom domain.
 
 ## B. Before a paying customer sees it
@@ -27,13 +27,13 @@ ordered by impact. Each one links to the exact screen.
 6. **PDF invoice transcription (you)** — Vercel → Project → Settings → Environment Variables
    Add `ANTHROPIC_API_KEY` (https://console.anthropic.com/settings/keys) or `OPENAI_API_KEY`
    (https://platform.openai.com/api-keys) for **Production**, redeploy, then confirm
-   `https://recovix-three.vercel.app/api/health` shows `"pdfExtraction":"configured"`.
+   `https://recovix-dev.vercel.app/api/health` shows `"pdfExtraction":"configured"`.
 7. **Legal entity details (you, 2 minutes)** — edit `src/lib/legal.ts` or set
    `NEXT_PUBLIC_LEGAL_ENTITY`, `NEXT_PUBLIC_GOVERNING_LAW`, `NEXT_PUBLIC_LEGAL_EMAIL`,
    `NEXT_PUBLIC_LEGAL_ADDRESS` in Vercel. Pages: `/terms`, `/privacy`. Have counsel review
    before signing enterprise customers.
 8. **Uptime monitor (you)** — point Better Stack (https://betterstack.com/uptime), Checkly or
-   UptimeRobot at `https://recovix-three.vercel.app/api/health`, expect HTTP 200 and body
+   UptimeRobot at `https://recovix-dev.vercel.app/api/health`, expect HTTP 200 and body
    containing `"status":"ok"`, 1-minute interval.
 9. **Backups (you, optional)** — Supabase Pro already keeps 7 daily backups. For point-in-time
    recovery: https://supabase.com/dashboard/project/ewvgpfufzeyzyutjxuoh/database/backups → PITR.
