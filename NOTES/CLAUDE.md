@@ -12,7 +12,7 @@ Dated notes from Claude (Claude Code), same purpose as `NOTES/GROK.md`: what Cla
 ### Verified this session (on 756f9f2)
 - `npm run lint`, `typecheck`, `test` (vitest, 12 files), `build`: all pass on Node 22.
 - SDK copies identical to canonical (wallet, login, redirect, cixy, world agent/provision); `apixis-world.ts` one revision behind like every site.
-- Advisors: `create_support_request` and `upsert_demo_audit_run` executable by anon (contact form + demo, intended); seven SECURITY DEFINER helpers executable by authenticated (`has_active_plan`, `add_organization_member`, `create_organization`, `discard_failed_document`, `ensure_recovra_owner_account`, `has_org_role`, `is_org_member`) — confirm `add_organization_member` checks the caller's org role inside; `plan_activation_receipts` RLS on with no policies (service-only, intended); leaked-password WARN.
+- Advisors: `create_support_request` and `upsert_demo_audit_run` executable by anon (contact form + demo, intended); seven SECURITY DEFINER helpers executable by authenticated (`has_active_plan`, `add_organization_member`, `create_organization`, `discard_failed_document`, `ensure_recovix_owner_account`, `has_org_role`, `is_org_member`) — confirm `add_organization_member` checks the caller's org role inside; `plan_activation_receipts` RLS on with no policies (service-only, intended); leaked-password WARN.
 
 ### Done (live)
 Landing + pricing, command center (opportunities, invoices, contracts, vendors, documents, ingest, integrations, modules, recoveries, reports, settings), claims, audit, Apixis ID + magic link + onboarding, Cixy (shared core + calm fallback), paid-plan activation via the Wallet (capture-first, receipt journal, idempotent RPC, billing roles), world agent, support + support queue, terms/privacy (env-driven legal entity), health route, CI.
@@ -25,6 +25,6 @@ Landing + pricing, command center (opportunities, invoices, contracts, vendors, 
 
 ### Open — Claude can do on your go
 - `src/app/companies/page.tsx` links Ominix to `nexxis-tau.vercel.app` (retired host).
-- Check whether `RECOVRA_AI_PROVIDER / RECOVRA_AI_API_KEY / RECOVRA_ENCRYPTION_KEY` (first lines of `.env.example`) are still read; extraction uses `ANTHROPIC_API_KEY`.
+- Check whether `RECOVIX_AI_PROVIDER / RECOVIX_AI_API_KEY / RECOVIX_ENCRYPTION_KEY` (first lines of `.env.example`) are still read; extraction uses `ANTHROPIC_API_KEY`.
 - Read `add_organization_member` and tighten it if it does not check the caller's role.
 - WORKBOARD still carries a 09-28 "in review" line (archive per D15, or clear it).
